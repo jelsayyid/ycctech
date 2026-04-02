@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Builder's Dream Board — YCC Tech Division</title>
+  <meta name="description" content="Micro-grants for hardware components blocking your campus project. $40–$150 for the parts you need to ship real things at Yale.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="index.html" class="nav__brand">YCC <span>Tech</span></a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="prize.html">Developer Prize</a></li>
+      <li><a href="bounties.html">Bounty Board</a></li>
+      <li><a href="speakers.html">Speakers</a></li>
+      <li><a href="dreamboard.html" class="active">Dream Board</a></li>
+    </ul>
+    <div class="nav__hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="nav__mobile-overlay" id="mobileNav">
+    <a href="index.html" onclick="closeMobileNav()">Home</a>
+    <a href="prize.html" onclick="closeMobileNav()">Developer Prize</a>
+    <a href="bounties.html" onclick="closeMobileNav()">Bounty Board</a>
+    <a href="speakers.html" onclick="closeMobileNav()">Speakers</a>
+    <a href="dreamboard.html" onclick="closeMobileNav()">Dream Board</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="section" style="padding-top:140px; padding-bottom:40px;">
+    <div class="container">
+      <div class="label label--accent reveal" style="margin-bottom:1.5rem;">
+        <span style="display:inline-flex;align-items:center;gap:0.75rem;">
+          <span style="width:32px;height:1px;background:var(--accent);display:block;"></span>
+          YCC Builder's Dream Board
+        </span>
+      </div>
+      <h1 class="section__title reveal" style="font-size:clamp(2.4rem, 5vw, 4.2rem); max-width:22ch;">Your project stalled because of an $80 part?</h1>
+      <p class="section__subtitle reveal" style="max-width:60ch;">We fund the physical components blocking hardware projects meant for Yale's campus. Microcontrollers, sensors, motors, prototyping supplies — the $40–$150 that stands between your design and a deployed system. Apply in 5 minutes, hear back within a week.</p>
+    </div>
+  </section>
+
+  <!-- How it works + Apply -->
+  <section class="section section--bordered">
+    <div class="container">
+      <div class="about-grid" style="gap:5rem;">
+        <!-- Left: info -->
+        <div>
+          <div class="section__eyebrow label label--gold reveal" style="margin-bottom:1rem;">How It Works</div>
+          <h2 class="section__title reveal" style="font-size:1.8rem;">Micro-grants for real hardware</h2>
+
+          <div class="timeline reveal" style="margin-top:2.5rem;">
+            <div class="timeline__item active">
+              <div class="timeline__dot"></div>
+              <div class="timeline__date">Step 1</div>
+              <div class="timeline__title">Apply</div>
+              <div class="timeline__desc">Fill out the form — describe your project, list the components you need with prices, and tell us where on campus it'll be deployed.</div>
+            </div>
+            <div class="timeline__item">
+              <div class="timeline__dot"></div>
+              <div class="timeline__date">Step 2</div>
+              <div class="timeline__title">Review</div>
+              <div class="timeline__desc">YCC Tech Division reviews applications on a rolling basis. You'll hear back within one week.</div>
+            </div>
+            <div class="timeline__item">
+              <div class="timeline__dot"></div>
+              <div class="timeline__date">Step 3</div>
+              <div class="timeline__title">Get your parts</div>
+              <div class="timeline__desc">Approved applicants get reimbursed after purchase or we procure the components directly through the YCC.</div>
+            </div>
+            <div class="timeline__item">
+              <div class="timeline__dot"></div>
+              <div class="timeline__date">Step 4</div>
+              <div class="timeline__title">Build &amp; deploy</div>
+              <div class="timeline__desc">Ship your project on campus. Submit a brief follow-up update at the end of the semester so we can showcase what got built.</div>
+            </div>
+          </div>
+
+          <div class="spec-block reveal" style="margin-top:2.5rem;">
+            <div class="spec-block__title">What We Fund</div>
+            <div class="spec-block__content">
+              <ul style="list-style:none;">
+                <li style="padding:0.4rem 0; padding-left:1.2rem; position:relative;"><span style="position:absolute;left:0;font-family:var(--font-mono);font-size:0.7rem;color:var(--green);">&#10003;</span> Microcontrollers (Arduino, ESP32, Teensy, etc.)</li>
+                <li style="padding:0.4rem 0; padding-left:1.2rem; position:relative;"><span style="position:absolute;left:0;font-family:var(--font-mono);font-size:0.7rem;color:var(--green);">&#10003;</span> Single-board computers (Raspberry Pi, Jetson Nano)</li>
+                <li style="padding:0.4rem 0; padding-left:1.2rem; position:relative;"><span style="position:absolute;left:0;font-family:var(--font-mono);font-size:0.7rem;color:var(--green);">&#10003;</span> Sensors, actuators, motor drivers</li>
+                <li style="padding:0.4rem 0; padding-left:1.2rem; position:relative;"><span style="position:absolute;left:0;font-family:var(--font-mono);font-size:0.7rem;color:var(--green);">&#10003;</span> Prototyping supplies (breadboards, wiring, enclosures)</li>
+                <li style="padding:0.4rem 0; padding-left:1.2rem; position:relative;"><span style="position:absolute;left:0;font-family:var(--font-mono);font-size:0.7rem;color:var(--green);">&#10003;</span> Other physical components essential to your project</li>
+              </ul>
+              <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border);">
+                <ul style="list-style:none;">
+                  <li style="padding:0.4rem 0; padding-left:1.2rem; position:relative; color:var(--text-muted);"><span style="position:absolute;left:0;font-family:var(--font-mono);font-size:0.7rem;color:var(--accent);">&#10005;</span> Not covered: labor, software licenses, cloud hosting, overhead</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: application form -->
+        <div>
+          <div class="section__eyebrow label label--accent reveal" style="margin-bottom:1rem;">Apply Now</div>
+          <h2 class="section__title reveal" style="font-size:1.5rem; margin-bottom:2rem;">Component Grant Application</h2>
+          <form class="modal__form reveal" id="dreamboardForm" onsubmit="handleDreamboard(event)" style="gap:1.2rem;">
+            <input type="text" placeholder="Your name" required>
+            <input type="email" placeholder="Yale email" required>
+            <input type="text" placeholder="Project title" required>
+            <textarea placeholder="Project description — what are you building, and why? 3-5 sentences is plenty." style="min-height:110px;" required></textarea>
+            <textarea placeholder="Components needed — list each physical component with its approximate price, e.g. &quot;ESP32 - $12, servo motor - $8, moisture sensor - $6&quot;" style="min-height:100px;" required></textarea>
+            <input type="text" placeholder="Total estimated cost (e.g. $85)" required>
+            <input type="text" placeholder="Team members, if any (names and Yale emails)">
+            <input type="text" placeholder="Has this project received other funding? (if yes, from where and how much)">
+            <button type="submit" class="btn btn--gold" style="justify-content:center; width:100%;">Submit Application →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example projects -->
+  <section class="section section--bordered">
+    <div class="container container--narrow">
+      <div class="section__header reveal" style="text-align:center;">
+        <div class="section__eyebrow label">The Kind of Projects We're Looking For</div>
+        <h2 class="section__title" style="margin:0 auto; font-size:2rem;">Real hardware, real campus impact</h2>
+      </div>
+      <div class="initiatives reveal-stagger" style="margin-top:3rem;">
+        <div class="initiative-card">
+          <div class="initiative-card__icon">&#9881;</div>
+          <h3 class="initiative-card__title">Environmental Sensors</h3>
+          <p class="initiative-card__desc">Air quality monitors, temperature/humidity sensors for dorms, noise level trackers for libraries — the kind of data that makes campus life measurably better.</p>
+        </div>
+        <div class="initiative-card">
+          <div class="initiative-card__icon">&#9889;</div>
+          <h3 class="initiative-card__title">Automation Systems</h3>
+          <p class="initiative-card__desc">Automated composting, smart lighting, irrigation controllers for campus gardens — systems that solve real operational problems at Yale.</p>
+        </div>
+        <div class="initiative-card">
+          <div class="initiative-card__icon">&#9670;</div>
+          <h3 class="initiative-card__title">IoT &amp; Robotics</h3>
+          <p class="initiative-card__desc">Connected devices, location beacons, robotic prototypes — anything with a microcontroller and a purpose beyond the lab bench.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="cta-banner__bg"></div>
+    <h2 class="cta-banner__title reveal">Don't let $80 kill a good project</h2>
+    <p class="cta-banner__desc reveal">If you have a working design and a real campus use case, we'll fund the parts. Five-minute application, one-week turnaround.</p>
+    <div class="reveal">
+      <a href="#" class="btn btn--gold" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Apply Now ↑</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__left">© 2026 YCC Tech Division — Yale College Council</div>
+    <div class="footer__right">
+      <a href="index.html">Home</a>
+      <a href="bounties.html">Bounties</a>
+      <a href="prize.html">Developer Prize</a>
+      <a href="mailto:ycctech@yale.edu">Contact</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

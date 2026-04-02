@@ -207,6 +207,45 @@ function handleSpeakerNom(e) {
   });
 }
 
+// --- Dream Board Application ---
+function handleDreamboard(e) {
+  e.preventDefault();
+  const form = e.target;
+  const inputs = form.querySelectorAll('input, textarea');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  submitBtn.textContent = 'Submitting...';
+  submitBtn.disabled = true;
+
+  const formData = new FormData();
+  formData.append('entry.123697669', inputs[0].value);   // Your Name
+  formData.append('entry.1930971643', inputs[1].value);  // Yale Email
+  formData.append('entry.1833541954', inputs[2].value);  // Project Title
+  formData.append('entry.1286104526', inputs[3].value);  // Project Description
+  formData.append('entry.912288944', inputs[4].value);   // Components Needed
+  formData.append('entry.1738379913', inputs[5].value);  // Total Estimated Cost
+  formData.append('entry.650469324', inputs[6].value);   // Team Members
+  formData.append('entry.1272954879', inputs[7].value);  // Other Funding
+
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLScUkfUGIs50FOiF-BEiShilgO4IfeVSpD6CFB3hydSKsguFoA/formResponse', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  }).then(() => {
+    form.innerHTML = `
+      <div style="text-align:center; padding:2rem 0;">
+        <div style="font-size:3rem; margin-bottom:1rem;">&#10003;</div>
+        <h3 class="modal__title" style="text-align:center;">Application Submitted</h3>
+        <p class="modal__desc" style="text-align:center;">We've got your application. The YCC Tech Division reviews on a rolling basis — expect to hear back within one week.</p>
+      </div>
+    `;
+  }).catch(() => {
+    submitBtn.textContent = 'Submit Application →';
+    submitBtn.disabled = false;
+    alert('Something went wrong. Please try again or email ycctechdivision@gmail.com.');
+  });
+}
+
 // --- Bounty Filters ---
 document.addEventListener('DOMContentLoaded', () => {
   const filterBtns = document.querySelectorAll('.filter-btn');
