@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YCC Tech Division — Yale College Council</title>
+  <meta name="description" content="The YCC Tech Division builds infrastructure for Yale's developer community. Bounties, prizes, and speaker events connecting students with technology.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="index.html" class="nav__brand">YCC <span>Tech</span></a>
+    <ul class="nav__links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="prize.html">Developer Prize</a></li>
+      <li><a href="bounties.html">Bounty Board</a></li>
+      <li><a href="bounties.html" class="nav__cta">Claim a Bounty</a></li>
+    </ul>
+    <div class="nav__hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav__mobile-overlay" id="mobileNav">
+    <a href="index.html" onclick="closeMobileNav()">Home</a>
+    <a href="prize.html" onclick="closeMobileNav()">Developer Prize</a>
+    <a href="bounties.html" onclick="closeMobileNav()">Bounty Board</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="container">
+      <div class="hero__label label label--accent">Yale College Council Tech Division</div>
+      <h1 class="hero__title reveal">Build the infrastructure <em>Yale needs</em></h1>
+      <p class="hero__subtitle reveal">We fund student-built tools, APIs, and platforms that the Yale community actually uses. Claim bounties, compete for the Developer Prize, and shape the tech layer of campus life.</p>
+      <div class="hero__actions reveal">
+        <a href="bounties.html" class="btn btn--primary">View Bounties →</a>
+        <a href="prize.html" class="btn btn--outline">$1,200 Developer Prize</a>
+      </div>
+      <div class="hero__stats reveal">
+        <div>
+          <div class="hero__stat-value">$5K</div>
+          <div class="hero__stat-label">Initiative Budget</div>
+        </div>
+        <div>
+          <div class="hero__stat-value">6</div>
+          <div class="hero__stat-label">Active Bounties</div>
+        </div>
+        <div>
+          <div class="hero__stat-value">$1.2K</div>
+          <div class="hero__stat-label">Prize Pool</div>
+        </div>
+        <div>
+          <div class="hero__stat-value">Apr 25</div>
+          <div class="hero__stat-label">Award Ceremony</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Initiatives -->
+  <section class="section section--bordered">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section__eyebrow label label--accent">What We Do</div>
+        <h2 class="section__title">Three ways to build, ship, and get recognized</h2>
+      </div>
+      <div class="initiatives reveal-stagger">
+        <a href="bounties.html" class="initiative-card">
+          <div class="initiative-card__icon">⚙</div>
+          <div class="label" style="margin-bottom:0.75rem;">$200 – $500 each</div>
+          <h3 class="initiative-card__title">Bounty Board</h3>
+          <p class="initiative-card__desc">Claim a bounty, build it, ship it, get paid. We've seeded the board with the infrastructure every Yale developer wishes existed — dining APIs, course data, campus maps, and more.</p>
+          <span class="initiative-card__link">Browse bounties <span>→</span></span>
+        </a>
+        <a href="prize.html" class="initiative-card">
+          <div class="initiative-card__icon">◆</div>
+          <div class="label label--gold" style="margin-bottom:0.75rem;">$1,200 Grand Prize</div>
+          <h3 class="initiative-card__title">Developer Prize</h3>
+          <p class="initiative-card__desc">Build the best new tool for the Yale community. Judged on real impact, usability, and openness by a panel of faculty and tech leaders. Award ceremony at Tsai City on April 25th.</p>
+          <span class="initiative-card__link">Learn more <span>→</span></span>
+        </a>
+        <div class="initiative-card">
+          <div class="initiative-card__icon">▸</div>
+          <div class="label" style="margin-bottom:0.75rem;">Coming Soon</div>
+          <h3 class="initiative-card__title">Speaker Series</h3>
+          <p class="initiative-card__desc">Intimate conversations with professors, founders, and Yale alumni building in tech. From research labs to startups — hear how they got there and what they'd do differently.</p>
+          <span class="initiative-card__link" style="color: var(--text-muted);">Stay tuned <span>→</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Mission -->
+  <section class="section section--bordered">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section__eyebrow label">About the Initiative</div>
+        <h2 class="section__title">Technology access is a student interest</h2>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-grid__text">
+          <p>The YCC Tech Partnership Initiative is the Yale College Council's direct effort to strengthen how students engage with technology — as builders, researchers, and creators across every discipline.</p>
+          <p>We're not a CS club. We're the elected student government taking an active role in ensuring Yale students have access to the tools, platforms, and communities that matter for their academic and professional futures.</p>
+          <p>Through bounties, prizes, and speaker programming, we fund the infrastructure layer that makes student projects possible — and we make sure the people building it get recognized.</p>
+        </div>
+        <div class="about-grid__sidebar">
+          <div class="about-grid__sidebar-item">
+            <div class="about-grid__sidebar-title">Parent Body</div>
+            <div class="about-grid__sidebar-value">Yale College Council</div>
+          </div>
+          <div class="about-grid__sidebar-item">
+            <div class="about-grid__sidebar-title">Budget Allocated</div>
+            <div class="about-grid__sidebar-value text-gold">$5,000</div>
+          </div>
+          <div class="about-grid__sidebar-item">
+            <div class="about-grid__sidebar-title">Focus</div>
+            <div class="about-grid__sidebar-value">Student-built tools &amp; infrastructure</div>
+          </div>
+          <div class="about-grid__sidebar-item">
+            <div class="about-grid__sidebar-title">Open To</div>
+            <div class="about-grid__sidebar-value">All Yale College students</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="cta-banner__bg"></div>
+    <h2 class="cta-banner__title reveal">Ready to build?</h2>
+    <p class="cta-banner__desc reveal">Grab a bounty, enter the Developer Prize, or just come say hi. We're building the tech layer Yale has been missing.</p>
+    <div class="reveal">
+      <a href="bounties.html" class="btn btn--primary">View Bounty Board →</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__left">© 2026 YCC Tech Division — Yale College Council</div>
+    <div class="footer__right">
+      <a href="https://yalecollege council.org" target="_blank">YCC Main Site</a>
+      <a href="mailto:ycctech@yale.edu">ycctech@yale.edu</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
