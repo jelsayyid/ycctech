@@ -88,16 +88,40 @@ function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const modal = form.closest('.modal');
+  const inputs = form.querySelectorAll('input, textarea');
+  const submitBtn = form.querySelector('button[type="submit"]');
 
-  // Show success state
-  modal.innerHTML = `
-    <div style="text-align:center; padding:2rem 0;">
-      <div style="font-size:3rem; margin-bottom:1rem;">✓</div>
-      <h3 class="modal__title" style="text-align:center;">Submission Received</h3>
-      <p class="modal__desc" style="text-align:center;">We've got your entry. You'll receive a confirmation email shortly. Good luck!</p>
-      <button class="btn btn--outline" onclick="closeModal('submitModal')" style="margin:0 auto;">Close</button>
-    </div>
-  `;
+  // Disable button while submitting
+  submitBtn.textContent = 'Submitting...';
+  submitBtn.disabled = true;
+
+  // Map form fields to Google Form entry IDs
+  const formData = new FormData();
+  formData.append('entry.1959953317', inputs[0].value); // Name(s)
+  formData.append('entry.1856506585', inputs[1].value); // Yale Email
+  formData.append('entry.1178034338', inputs[2].value); // Project Name
+  formData.append('entry.440314620', inputs[3].value);  // GitHub Repo URL
+  formData.append('entry.1430845286', inputs[4].value); // Demo Video URL
+  formData.append('entry.1862832929', inputs[5].value); // Problem Description
+
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLSdDYEbXk7wJczWrNNqj6W8C4vjJ729pGUPhlOLQSqV4_R7RtQ/formResponse', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  }).then(() => {
+    modal.innerHTML = `
+      <div style="text-align:center; padding:2rem 0;">
+        <div style="font-size:3rem; margin-bottom:1rem;">&#10003;</div>
+        <h3 class="modal__title" style="text-align:center;">Submission Received</h3>
+        <p class="modal__desc" style="text-align:center;">We've got your entry. Good luck!</p>
+        <button class="btn btn--outline" onclick="closeModal('submitModal')" style="margin:0 auto;">Close</button>
+      </div>
+    `;
+  }).catch(() => {
+    submitBtn.textContent = 'Submit Entry';
+    submitBtn.disabled = false;
+    alert('Something went wrong. Please try again or email ycctechdivision@gmail.com.');
+  });
 }
 
 // --- Bounty Claim ---
@@ -113,15 +137,38 @@ function handleClaim(e) {
   e.preventDefault();
   const form = e.target;
   const modal = form.closest('.modal');
+  const inputs = form.querySelectorAll('input, textarea');
+  const submitBtn = form.querySelector('button[type="submit"]');
 
-  modal.innerHTML = `
-    <div style="text-align:center; padding:2rem 0;">
-      <div style="font-size:3rem; margin-bottom:1rem;">⚡</div>
-      <h3 class="modal__title" style="text-align:center;">Bounty Claimed</h3>
-      <p class="modal__desc" style="text-align:center;">You're locked in. Check your email for next steps and the full spec. Start building!</p>
-      <button class="btn btn--outline" onclick="closeModal('claimModal')" style="margin:0 auto;">Close</button>
-    </div>
-  `;
+  submitBtn.textContent = 'Claiming...';
+  submitBtn.disabled = true;
+
+  // Map form fields to Google Form entry IDs
+  const formData = new FormData();
+  formData.append('entry.1719970910', inputs[0].value); // Bounty Name
+  formData.append('entry.124487336', inputs[1].value);  // Your Name
+  formData.append('entry.491030897', inputs[2].value);  // Yale Email
+  formData.append('entry.1811676908', inputs[3].value); // GitHub Profile URL
+  formData.append('entry.1766604249', inputs[4].value); // Approach Plan
+
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLSer8h6fEt3lseuZ6E6sd01t85CuDNtUVWyfTby_gMHcfyzPyw/formResponse', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  }).then(() => {
+    modal.innerHTML = `
+      <div style="text-align:center; padding:2rem 0;">
+        <div style="font-size:3rem; margin-bottom:1rem;">&#9889;</div>
+        <h3 class="modal__title" style="text-align:center;">Bounty Claimed</h3>
+        <p class="modal__desc" style="text-align:center;">You're locked in. Check your email for next steps and the full spec. Start building!</p>
+        <button class="btn btn--outline" onclick="closeModal('claimModal')" style="margin:0 auto;">Close</button>
+      </div>
+    `;
+  }).catch(() => {
+    submitBtn.textContent = 'Claim This Bounty';
+    submitBtn.disabled = false;
+    alert('Something went wrong. Please try again or email ycctechdivision@gmail.com.');
+  });
 }
 
 // --- Bounty Filters ---
