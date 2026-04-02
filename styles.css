@@ -1027,6 +1027,23 @@ h1, h2, h3, h4, h5 {
   border-color: var(--text-muted);
 }
 
+.modal__form input:invalid:not(:placeholder-shown),
+.modal__form textarea:invalid:not(:placeholder-shown) {
+  border-color: var(--accent);
+}
+
+.form-error {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  margin-top: -0.5rem;
+  display: none;
+}
+
+.form-error.visible {
+  display: block;
+}
+
 .modal__form textarea {
   resize: vertical;
   min-height: 80px;

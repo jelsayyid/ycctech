@@ -328,5 +328,61 @@ window.addEventListener('scroll', () => {
   lastScroll = scroll;
 });
 
+// --- Form Validation ---
+function initFormValidation() {
+  document.querySelectorAll('.modal__form').forEach((form) => {
+    form.setAttribute('novalidate', '');
+
+    form.addEventListener('submit', (e) => {
+      // Clear previous errors
+      form.querySelectorAll('.form-error').forEach((el) => el.remove());
+      form.querySelectorAll('.input-error').forEach((el) => el.classList.remove('input-error'));
+
+      let firstInvalid = null;
+
+      form.querySelectorAll('input, textarea').forEach((field) => {
+        if (!field.checkValidity()) {
+          field.style.borderColor = 'var(--accent)';
+
+          let msg = 'This field is required';
+          if (field.type === 'email' && field.value) {
+            msg = 'Please enter a valid email address';
+          } else if (field.type === 'url' && field.value) {
+            msg = 'Please enter a valid URL (include https://)';
+          }
+
+          const error = document.createElement('div');
+          error.className = 'form-error visible';
+          error.textContent = msg;
+          field.insertAdjacentElement('afterend', error);
+
+          if (!firstInvalid) firstInvalid = field;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+
+      if (firstInvalid) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        firstInvalid.focus();
+      }
+    });
+
+    // Clear error styling on input
+    form.addEventListener('input', (e) => {
+      const field = e.target;
+      if (field.checkValidity()) {
+        field.style.borderColor = '';
+        const next = field.nextElementSibling;
+        if (next && next.classList.contains('form-error')) next.remove();
+      }
+    });
+  });
+}
+
 // --- Init ---
-document.addEventListener('DOMContentLoaded', initReveal);
+document.addEventListener('DOMContentLoaded', () => {
+  initReveal();
+  initFormValidation();
+});
