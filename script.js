@@ -171,6 +171,42 @@ function handleClaim(e) {
   });
 }
 
+// --- Speaker Nomination ---
+function handleSpeakerNom(e) {
+  e.preventDefault();
+  const form = e.target;
+  const inputs = form.querySelectorAll('input, textarea');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  submitBtn.textContent = 'Submitting...';
+  submitBtn.disabled = true;
+
+  const formData = new FormData();
+  formData.append('entry.815230633', inputs[0].value); // Your Name
+  formData.append('entry.449643019', inputs[1].value); // Yale Email
+  formData.append('entry.829256281', inputs[2].value); // Speaker Name
+  formData.append('entry.370585796', inputs[3].value); // Connection to Yale
+  formData.append('entry.985445584', inputs[4].value); // Why them?
+
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLSex2InTgYVKJ70h378S1DM4EDfs_jQYKuVEusdux0AjXgL8dg/formResponse', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  }).then(() => {
+    form.innerHTML = `
+      <div style="text-align:center; padding:2rem 0;">
+        <div style="font-size:3rem; margin-bottom:1rem;">&#10003;</div>
+        <h3 class="modal__title" style="text-align:center;">Nomination Received</h3>
+        <p class="modal__desc" style="text-align:center;">Thanks! We'll review your suggestion and reach out if we move forward with this speaker.</p>
+      </div>
+    `;
+  }).catch(() => {
+    submitBtn.textContent = 'Submit Nomination →';
+    submitBtn.disabled = false;
+    alert('Something went wrong. Please try again or email ycctechdivision@gmail.com.');
+  });
+}
+
 // --- Bounty Filters ---
 document.addEventListener('DOMContentLoaded', () => {
   const filterBtns = document.querySelectorAll('.filter-btn');
