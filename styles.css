@@ -1103,9 +1103,18 @@ h1, h2, h3, h4, h5 {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* Explicit 2-col variant for about grids */
+.about-grid--half {
+  grid-template-columns: 1fr 1fr;
+}
+
 @media (max-width: 900px) {
   .initiatives,
   .initiatives--four {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid--half {
     grid-template-columns: 1fr;
   }
 
