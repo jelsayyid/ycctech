@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bounty Board — YCC Tech Division</title>
+  <title>Bounty Board | YCC Tech Division</title>
   <meta name="description" content="Claim a bounty, build it, ship it, get paid. $200–$500 bounties for the infrastructure Yale developers actually need.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -44,7 +44,7 @@
         </span>
       </div>
       <h1 class="section__title reveal" style="font-size:clamp(2.4rem, 5vw, 4.2rem); max-width:25ch;">These are things every Yale developer wishes existed</h1>
-      <p class="section__subtitle reveal">Claim a bounty, build it, ship it, get paid. Each bounty has a clear spec, acceptance criteria, and a deadline. Two people can't claim the same one — move fast.</p>
+      <p class="section__subtitle reveal">Claim a bounty, build it, ship it, get paid. Each bounty has a clear spec, acceptance criteria, and a deadline. Two people can't claim the same one, so move fast.</p>
 
       <!-- Filter bar -->
       <div class="reveal" style="display:flex; gap:0.75rem; margin-top:2.5rem; flex-wrap:wrap;">
@@ -104,7 +104,7 @@
               <h3 class="bounty-card__title">Yale Courses GraphQL/REST API</h3>
               <span class="bounty-card__amount">$500</span>
             </div>
-            <p class="bounty-card__desc">Create a public API layer on top of Yale course data — titles, descriptions, evaluations, schedules, instructors. CourseTable exists but doesn't expose a general-purpose API. Build a stable, versioned endpoint any student project can query.</p>
+            <p class="bounty-card__desc">Create a public API layer on top of Yale course data: titles, descriptions, evaluations, schedules, instructors. CourseTable exists but doesn't expose a general-purpose API. Build a stable, versioned endpoint any student project can query.</p>
             <div class="bounty-card__tags">
               <span class="bounty-card__tag">GraphQL</span>
               <span class="bounty-card__tag">REST</span>
@@ -194,7 +194,7 @@
               <h3 class="bounty-card__title">Yale Spaces &amp; Room Availability API</h3>
               <span class="bounty-card__amount">$350</span>
             </div>
-            <p class="bounty-card__desc">Build an API that surfaces room availability and bookings across Yale's reservable spaces — libraries, study rooms, residential college spaces. Right now students check three different systems. A unified data layer for better booking tools.</p>
+            <p class="bounty-card__desc">Build an API that surfaces room availability and bookings across Yale's reservable spaces (libraries, study rooms, residential college spaces. Right now students check three different systems. A unified data layer for better booking tools.</p>
             <div class="bounty-card__tags">
               <span class="bounty-card__tag">API</span>
               <span class="bounty-card__tag">Room Booking</span>
@@ -260,10 +260,10 @@
       <div class="about-grid reveal" style="grid-template-columns:1fr; max-width:640px; margin:3rem auto 0;">
         <div>
           <ul class="eligibility-list">
-            <li><strong>Claim it</strong> — Hit the claim button so nobody duplicates your work. One claim per bounty.</li>
-            <li><strong>Build it</strong> — You have 3–4 weeks. Check the spec for acceptance criteria.</li>
-            <li><strong>Ship it</strong> — Submit your GitHub repo + a short demo video showing it works.</li>
-            <li><strong>Get paid</strong> — We review against the spec. If it meets criteria, you get paid. Simple.</li>
+            <li><strong>Claim it:</strong> Hit the claim button so nobody duplicates your work. One claim per bounty.</li>
+            <li><strong>Build it:</strong> You have 3–4 weeks. Check the spec for acceptance criteria.</li>
+            <li><strong>Ship it:</strong> Submit your GitHub repo + a short demo video showing it works.</li>
+            <li><strong>Get paid:</strong> We review against the spec. If it meets criteria, you get paid. Simple.</li>
           </ul>
         </div>
       </div>
@@ -285,20 +285,20 @@
     <div class="modal">
       <button class="modal__close" onclick="closeModal('claimModal')">&times;</button>
       <h3 class="modal__title">Claim a Bounty</h3>
-      <p class="modal__desc" id="claimModalDesc">Fill out the form below to claim this bounty. Once claimed, it's yours — no one else can take it. You'll have 3–4 weeks to build and submit.</p>
+      <p class="modal__desc" id="claimModalDesc">Fill out the form below to claim this bounty. Once claimed, it's yours. No one else can take it. You'll have 3–4 weeks to build and submit.</p>
       <form class="modal__form" onsubmit="handleClaim(event)">
         <input type="text" id="claimBountyName" placeholder="Bounty name" required readonly>
         <input type="text" placeholder="Your name" required>
         <input type="email" placeholder="Yale email" required>
         <input type="url" placeholder="GitHub profile URL">
-        <textarea placeholder="Brief plan — how will you approach this? (2-3 sentences)"></textarea>
+        <textarea placeholder="Brief plan: how will you approach this? (2-3 sentences)"></textarea>
         <button type="submit" class="btn btn--primary" style="justify-content:center;">Claim This Bounty</button>
       </form>
     </div>
   </div>
 
   <footer class="footer">
-    <div class="footer__left">© 2026 YCC Tech Division — Yale College Council</div>
+    <div class="footer__left">© 2026 YCC Tech Division | Yale College Council</div>
     <div class="footer__right">
       <a href="index.html">Home</a>
       <a href="prize.html">Developer Prize</a>

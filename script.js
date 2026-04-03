@@ -1,5 +1,5 @@
 // ============================================
-// YCC Tech Division — Interactions
+// YCC Tech Division | Interactions
 // ============================================
 
 // --- Scroll Reveal ---
@@ -129,7 +129,7 @@ function claimBounty(name, amount) {
   const nameInput = document.getElementById('claimBountyName');
   const desc = document.getElementById('claimModalDesc');
   if (nameInput) nameInput.value = name;
-  if (desc) desc.textContent = `You're claiming "${name}" (${amount}). Once claimed, it's yours — no one else can take it. You'll have 3–4 weeks to build and submit.`;
+  if (desc) desc.textContent = `You're claiming "${name}" (${amount}). Once claimed, it's yours. No one else can take it. You'll have 3–4 weeks to build and submit.`;
   openModal('claimModal');
 }
 
@@ -236,7 +236,7 @@ function handleDreamboard(e) {
       <div style="text-align:center; padding:2rem 0;">
         <div style="font-size:3rem; margin-bottom:1rem;">&#10003;</div>
         <h3 class="modal__title" style="text-align:center;">Application Submitted</h3>
-        <p class="modal__desc" style="text-align:center;">We've got your application. The YCC Tech Division reviews on a rolling basis — expect to hear back within one week.</p>
+        <p class="modal__desc" style="text-align:center;">We've got your application. The YCC Tech Division reviews on a rolling basis. Expect to hear back within one week.</p>
       </div>
     `;
   }).catch(() => {
