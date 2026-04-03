@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bounty Board | YCC Tech Division</title>
-  <meta name="description" content="Claim a bounty, build it, ship it, get paid. $200–$500 bounties for the infrastructure Yale developers actually need.">
+  <meta name="description" content="$200-$500 bounties for the infrastructure Yale developers actually need. Currently under review -- claiming opens soon.">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a0a'/><text x='50' y='62' font-size='48' fill='%23e0e0e0' text-anchor='middle' font-family='monospace' dominant-baseline='middle'>//</text></svg>">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
       <li><a href="bounties.html" class="active">Bounty Board</a></li>
       <li><a href="speakers.html">Speakers</a></li>
       <li><a href="dreamboard.html">Dream Board</a></li>
-      <li><a href="#" class="nav__cta" onclick="openModal('claimModal'); return false;">Claim a Bounty</a></li>
+      <li><a href="bounties.html" class="nav__cta">Bounty Board</a></li>
     </ul>
     <div class="nav__hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -44,11 +44,17 @@
         </span>
       </div>
       <h1 class="section__title reveal" style="font-size:clamp(2.4rem, 5vw, 4.2rem); max-width:25ch;">These are things every Yale developer wishes existed</h1>
-      <p class="section__subtitle reveal">Claim a bounty, build it, ship it, get paid. Each bounty has a clear spec, acceptance criteria, and a deadline. Two people can't claim the same one, so move fast.</p>
+      <p class="section__subtitle reveal">These are the projects we're considering funding as bounties. We're currently reviewing which ones to green-light. Once a bounty goes live, you'll be able to claim it, build it, and get paid.</p>
+
+      <!-- Status banner -->
+      <div class="reveal" style="margin-top:2rem; padding:1.25rem 1.5rem; border:1px solid var(--border); border-left:3px solid var(--gold); background:var(--bg-raised);">
+        <p style="font-size:0.85rem; color:var(--text-secondary); margin:0; line-height:1.6;"><strong style="color:var(--gold);">Claiming opens soon.</strong> We're sitting down with the team to finalize which bounties are worth funding and at what amounts. Check back for updates, or keep an eye on your inbox.</p>
+      </div>
 
       <!-- Filter bar -->
       <div class="reveal" style="display:flex; gap:0.75rem; margin-top:2.5rem; flex-wrap:wrap;">
         <button class="btn btn--outline filter-btn active-filter" data-filter="all" style="padding:0.5rem 1.2rem; font-size:0.7rem;">All Bounties</button>
+        <button class="btn btn--outline filter-btn" data-filter="review" style="padding:0.5rem 1.2rem; font-size:0.7rem;">Under Review</button>
         <button class="btn btn--outline filter-btn" data-filter="open" style="padding:0.5rem 1.2rem; font-size:0.7rem;">Open</button>
         <button class="btn btn--outline filter-btn" data-filter="claimed" style="padding:0.5rem 1.2rem; font-size:0.7rem;">Claimed</button>
       </div>
@@ -61,7 +67,7 @@
       <div class="bounty-grid reveal-stagger">
 
         <!-- Bounty 1: Yale Dining API -->
-        <div class="bounty-card" data-status="open" data-bounty="dining-api">
+        <div class="bounty-card" data-status="review" data-bounty="dining-api">
           <div>
             <div class="bounty-card__header">
               <h3 class="bounty-card__title">Yale Dining API</h3>
@@ -75,8 +81,8 @@
             </div>
           </div>
           <div class="bounty-card__actions">
-            <div class="bounty-card__status bounty-card__status--open">Open</div>
-            <button class="btn--claim" onclick="claimBounty('Yale Dining API', '$400')">Claim →</button>
+            <div class="bounty-card__status bounty-card__status--review">Under Review</div>
+            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Yale Dining API', '$400')">Coming Soon</button>
           </div>
           <div class="bounty-card__detail" id="detail-dining-api">
             <h4>Acceptance Criteria</h4>
@@ -98,7 +104,7 @@
         </div>
 
         <!-- Bounty 2: Yale Courses API -->
-        <div class="bounty-card" data-status="open" data-bounty="courses-api">
+        <div class="bounty-card" data-status="review" data-bounty="courses-api">
           <div>
             <div class="bounty-card__header">
               <h3 class="bounty-card__title">Yale Courses GraphQL/REST API</h3>
@@ -112,8 +118,8 @@
             </div>
           </div>
           <div class="bounty-card__actions">
-            <div class="bounty-card__status bounty-card__status--open">Open</div>
-            <button class="btn--claim" onclick="claimBounty('Yale Courses API', '$500')">Claim →</button>
+            <div class="bounty-card__status bounty-card__status--review">Under Review</div>
+            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Yale Courses API', '$500')">Coming Soon</button>
           </div>
           <div class="bounty-card__detail" id="detail-courses-api">
             <h4>Acceptance Criteria</h4>
@@ -128,7 +134,7 @@
         </div>
 
         <!-- Bounty 3: Events Aggregator -->
-        <div class="bounty-card" data-status="open" data-bounty="events-api">
+        <div class="bounty-card" data-status="review" data-bounty="events-api">
           <div>
             <div class="bounty-card__header">
               <h3 class="bounty-card__title">Yale Events Aggregator API</h3>
@@ -142,8 +148,8 @@
             </div>
           </div>
           <div class="bounty-card__actions">
-            <div class="bounty-card__status bounty-card__status--open">Open</div>
-            <button class="btn--claim" onclick="claimBounty('Yale Events Aggregator', '$300')">Claim →</button>
+            <div class="bounty-card__status bounty-card__status--review">Under Review</div>
+            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Yale Events Aggregator', '$300')">Coming Soon</button>
           </div>
           <div class="bounty-card__detail" id="detail-events-api">
             <h4>Acceptance Criteria</h4>
@@ -157,7 +163,7 @@
         </div>
 
         <!-- Bounty 4: Starter Kit -->
-        <div class="bounty-card" data-status="open" data-bounty="starter-kit">
+        <div class="bounty-card" data-status="review" data-bounty="starter-kit">
           <div>
             <div class="bounty-card__header">
               <h3 class="bounty-card__title">"Hello Yale Dev" Starter Kit</h3>
@@ -171,8 +177,8 @@
             </div>
           </div>
           <div class="bounty-card__actions">
-            <div class="bounty-card__status bounty-card__status--open">Open</div>
-            <button class="btn--claim" onclick="claimBounty('Hello Yale Dev Starter Kit', '$200')">Claim →</button>
+            <div class="bounty-card__status bounty-card__status--review">Under Review</div>
+            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Hello Yale Dev Starter Kit', '$200')">Coming Soon</button>
           </div>
           <div class="bounty-card__detail" id="detail-starter-kit">
             <h4>Acceptance Criteria</h4>
@@ -188,7 +194,7 @@
         </div>
 
         <!-- Bounty 5: Spaces API -->
-        <div class="bounty-card" data-status="open" data-bounty="spaces-api">
+        <div class="bounty-card" data-status="review" data-bounty="spaces-api">
           <div>
             <div class="bounty-card__header">
               <h3 class="bounty-card__title">Yale Spaces &amp; Room Availability API</h3>
@@ -202,8 +208,8 @@
             </div>
           </div>
           <div class="bounty-card__actions">
-            <div class="bounty-card__status bounty-card__status--open">Open</div>
-            <button class="btn--claim" onclick="claimBounty('Yale Spaces API', '$350')">Claim →</button>
+            <div class="bounty-card__status bounty-card__status--review">Under Review</div>
+            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Yale Spaces API', '$350')">Coming Soon</button>
           </div>
           <div class="bounty-card__detail" id="detail-spaces-api">
             <h4>Acceptance Criteria</h4>
@@ -217,7 +223,7 @@
         </div>
 
         <!-- Bounty 6: Map Data -->
-        <div class="bounty-card" data-status="open" data-bounty="map-api">
+        <div class="bounty-card" data-status="review" data-bounty="map-api">
           <div>
             <div class="bounty-card__header">
               <h3 class="bounty-card__title">Open Yale Map Data / Geospatial API</h3>
@@ -231,8 +237,8 @@
             </div>
           </div>
           <div class="bounty-card__actions">
-            <div class="bounty-card__status bounty-card__status--open">Open</div>
-            <button class="btn--claim" onclick="claimBounty('Open Yale Map Data', '$250')">Claim →</button>
+            <div class="bounty-card__status bounty-card__status--review">Under Review</div>
+            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Open Yale Map Data', '$250')">Coming Soon</button>
           </div>
           <div class="bounty-card__detail" id="detail-map-api">
             <h4>Acceptance Criteria</h4>
@@ -255,7 +261,7 @@
     <div class="container container--narrow">
       <div class="section__header reveal" style="text-align:center;">
         <div class="section__eyebrow label">How It Works</div>
-        <h2 class="section__title" style="margin:0 auto;">Claim → Build → Ship → Get Paid</h2>
+        <h2 class="section__title" style="margin:0 auto;">How bounties will work</h2>
       </div>
       <div class="about-grid reveal" style="grid-template-columns:1fr; max-width:640px; margin:3rem auto 0;">
         <div>
@@ -273,10 +279,10 @@
   <!-- CTA -->
   <section class="cta-banner">
     <div class="cta-banner__bg"></div>
-    <h2 class="cta-banner__title reveal">$2,000 in bounties. All open.</h2>
-    <p class="cta-banner__desc reveal">Pick the one that matches your skills, claim it, and start building the infrastructure Yale needs.</p>
+    <h2 class="cta-banner__title reveal">$2,000 in bounties. Under review.</h2>
+    <p class="cta-banner__desc reveal">We're finalizing which bounties to fund. Once they go live, pick the one that matches your skills and start building.</p>
     <div class="reveal">
-      <a href="#" class="btn btn--primary" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Back to Top ↑</a>
+      <a href="#" class="btn btn--primary" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Back to Top</a>
     </div>
   </section>
 
@@ -302,7 +308,7 @@
     <div class="footer__right">
       <a href="index.html">Home</a>
       <a href="prize.html">Developer Prize</a>
-      <a href="mailto:ycctech@yale.edu">Contact</a>
+      <a href="mailto:ycc@yale.edu">Contact</a>
     </div>
   </footer>
 

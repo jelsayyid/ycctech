@@ -111,7 +111,7 @@ function handleSubmit(e) {
   }).then(() => {
     modal.innerHTML = `
       <div style="text-align:center; padding:2rem 0;">
-        <div style="font-size:3rem; margin-bottom:1rem;">&#10003;</div>
+        <div style="font-size:1.5rem; margin-bottom:1rem; font-family:var(--font-mono); color:var(--green);">Done</div>
         <h3 class="modal__title" style="text-align:center;">Submission Received</h3>
         <p class="modal__desc" style="text-align:center;">We've got your entry. Good luck!</p>
         <button class="btn btn--outline" onclick="closeModal('submitModal')" style="margin:0 auto;">Close</button>
@@ -158,7 +158,7 @@ function handleClaim(e) {
   }).then(() => {
     modal.innerHTML = `
       <div style="text-align:center; padding:2rem 0;">
-        <div style="font-size:3rem; margin-bottom:1rem;">&#9889;</div>
+        <div style="font-size:1.5rem; margin-bottom:1rem; font-family:var(--font-mono); color:var(--accent);">Done</div>
         <h3 class="modal__title" style="text-align:center;">Bounty Claimed</h3>
         <p class="modal__desc" style="text-align:center;">You're locked in. Check your email for next steps and the full spec. Start building!</p>
         <button class="btn btn--outline" onclick="closeModal('claimModal')" style="margin:0 auto;">Close</button>
@@ -195,13 +195,13 @@ function handleSpeakerNom(e) {
   }).then(() => {
     form.innerHTML = `
       <div style="text-align:center; padding:2rem 0;">
-        <div style="font-size:3rem; margin-bottom:1rem;">&#10003;</div>
+        <div style="font-size:1.5rem; margin-bottom:1rem; font-family:var(--font-mono); color:var(--green);">Done</div>
         <h3 class="modal__title" style="text-align:center;">Nomination Received</h3>
         <p class="modal__desc" style="text-align:center;">Thanks! We'll review your suggestion and reach out if we move forward with this speaker.</p>
       </div>
     `;
   }).catch(() => {
-    submitBtn.textContent = 'Submit Nomination →';
+    submitBtn.textContent = 'Submit Nomination';
     submitBtn.disabled = false;
     alert('Something went wrong. Please try again or email ycctechdivision@gmail.com.');
   });
@@ -234,13 +234,13 @@ function handleDreamboard(e) {
   }).then(() => {
     form.innerHTML = `
       <div style="text-align:center; padding:2rem 0;">
-        <div style="font-size:3rem; margin-bottom:1rem;">&#10003;</div>
+        <div style="font-size:1.5rem; margin-bottom:1rem; font-family:var(--font-mono); color:var(--green);">Done</div>
         <h3 class="modal__title" style="text-align:center;">Application Submitted</h3>
         <p class="modal__desc" style="text-align:center;">We've got your application. The YCC Tech Division reviews on a rolling basis. Expect to hear back within one week.</p>
       </div>
     `;
   }).catch(() => {
-    submitBtn.textContent = 'Submit Application →';
+    submitBtn.textContent = 'Submit Application';
     submitBtn.disabled = false;
     alert('Something went wrong. Please try again or email ycctechdivision@gmail.com.');
   });
@@ -303,10 +303,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const specToggle = document.createElement('button');
       specToggle.className = 'bounty-card__tag';
       specToggle.style.cssText = 'cursor:pointer; color:var(--accent); border-color:var(--accent); background:none;';
-      specToggle.textContent = '↓ View Spec';
+      specToggle.textContent = 'View Spec';
       specToggle.addEventListener('click', () => {
         const isOpen = detail.classList.toggle('open');
-        specToggle.textContent = isOpen ? '↑ Hide Spec' : '↓ View Spec';
+        specToggle.textContent = isOpen ? 'Hide Spec' : 'View Spec';
       });
       tags.appendChild(specToggle);
     }

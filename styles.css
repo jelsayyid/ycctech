@@ -761,6 +761,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .bounty-card__status--open { color: var(--green); }
+.bounty-card__status--review { color: var(--text-muted); }
 .bounty-card__status--claimed { color: var(--gold); }
 
 .bounty-card__status::before {
