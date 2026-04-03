@@ -951,6 +951,29 @@ h1, h2, h3, h4, h5 {
 .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.32s; opacity: 1; transform: translateY(0); }
 .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.40s; opacity: 1; transform: translateY(0); }
 
+/* --- Typewriter --- */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+[data-typewriter] {
+  min-height: 1.2em;
+}
+
+.typewriter-active::after {
+  content: '|';
+  display: inline;
+  font-weight: 300;
+  color: var(--accent);
+  animation: blink-cursor 0.7s step-end infinite;
+  margin-left: 2px;
+}
+
+.typewriter-done::after {
+  display: none;
+}
+
 /* --- Modal --- */
 .modal-overlay {
   position: fixed;
