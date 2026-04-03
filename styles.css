@@ -283,6 +283,9 @@ h1, h2, h3, h4, h5 {
   position: relative;
 }
 
+.hero__title .mobile-text { display: none; }
+.hero__title .desktop-text { display: inline; }
+
 .hero__title em {
   font-style: normal;
   color: var(--accent);
@@ -1171,12 +1174,8 @@ h1, h2, h3, h4, h5 {
     padding-bottom: 60px;
   }
 
-  .hero__title {
-    font-size: clamp(2.6rem, 10vw, 3.8rem);
-    overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-  }
+  .hero__title .desktop-text { display: none; }
+  .hero__title .mobile-text { display: inline; }
 
   .section {
     padding: 60px 4vw;
