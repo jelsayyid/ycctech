@@ -383,120 +383,41 @@ function initFormValidation() {
 
 // --- Typewriter ---
 function initTypewriter() {
-  const el = document.querySelector('[data-typewriter]');
-  if (!el) return;
+  document.querySelectorAll('[data-typewriter]').forEach((el) => {
+    // Check if element is visible (skip hidden mobile/desktop spans)
+    if (getComputedStyle(el).display === 'none') return;
 
-  // Remove reveal class so it doesn't also fade-in
-  el.classList.remove('reveal');
-  el.style.opacity = '1';
-  el.style.transform = 'none';
+    const text = el.textContent;
+    el.textContent = '';
+    el.classList.add('typewriter-active');
 
-  // Store original HTML and compute height to prevent layout shift
-  const originalHTML = el.innerHTML;
-  const computedHeight = el.offsetHeight;
-  el.style.minHeight = computedHeight + 'px';
+    let idx = 0;
+    const speed = 40;
 
-  // Determine which text to type:
-  // If there's a desktop/mobile pattern, type whichever span is currently visible
-  const desktopSpan = el.querySelector('.desktop-text');
-  const mobileSpan = el.querySelector('.mobile-text');
-  let visibleSpan = null;
-  if (desktopSpan && mobileSpan) {
-    visibleSpan = getComputedStyle(desktopSpan).display !== 'none' ? desktopSpan : mobileSpan;
-  }
-  const sourceHTML = visibleSpan ? visibleSpan.innerHTML : el.innerHTML;
-
-  // Parse source HTML into flat operations using an off-DOM temp element
-  const ops = [];
-  const temp = document.createElement('div');
-  temp.innerHTML = sourceHTML;
-
-  function walk(node) {
-    for (let i = 0; i < node.childNodes.length; i++) {
-      const child = node.childNodes[i];
-      if (child.nodeType === Node.TEXT_NODE) {
-        for (const ch of child.textContent) {
-          ops.push({ type: 'char', char: ch });
-        }
-      } else if (child.nodeType === Node.ELEMENT_NODE) {
-        const tag = child.tagName.toLowerCase();
-        ops.push({ type: 'open', tag: tag, className: child.className, style: child.getAttribute('style') || '' });
-        walk(child);
-        ops.push({ type: 'close' });
+    function typeNext() {
+      if (idx >= text.length) {
+        el.classList.remove('typewriter-active');
+        el.classList.add('typewriter-done');
+        return;
       }
-    }
-  }
-  walk(temp);
-
-  // Clear the element, but if it has desktop/mobile spans, rebuild that structure
-  const hasDesktopMobile = !!visibleSpan;
-  const hiddenSpan = visibleSpan === desktopSpan ? mobileSpan : desktopSpan;
-  const hiddenHTML = hiddenSpan ? hiddenSpan.outerHTML : '';
-
-  el.innerHTML = '';
-  el.classList.add('typewriter-active');
-
-  // If desktop/mobile pattern, create the visible span as the typing target
-  let typingRoot = el;
-  if (hasDesktopMobile) {
-    const newVisible = document.createElement('span');
-    newVisible.className = visibleSpan.className;
-    el.appendChild(newVisible);
-    typingRoot = newVisible;
-  }
-
-  // Use a stack to track nested elements
-  let idx = 0;
-  const stack = [typingRoot];
-  const speed = 35;
-
-  function current() { return stack[stack.length - 1]; }
-
-  function typeNext() {
-    if (idx >= ops.length) {
-      // Done -- restore hidden span if needed, finish up
-      if (hasDesktopMobile && hiddenHTML) {
-        el.insertAdjacentHTML('beforeend', hiddenHTML);
-      }
-      el.classList.remove('typewriter-active');
-      el.classList.add('typewriter-done');
-      el.style.minHeight = '';
-      triggerSiblingReveals(el);
-      return;
-    }
-
-    const op = ops[idx];
-    idx++;
-
-    if (op.type === 'open') {
-      const wrapper = document.createElement(op.tag);
-      if (op.className) wrapper.className = op.className;
-      if (op.style) wrapper.setAttribute('style', op.style);
-      current().appendChild(wrapper);
-      stack.push(wrapper);
-      typeNext();
-    } else if (op.type === 'close') {
-      stack.pop();
-      typeNext();
-    } else if (op.type === 'char') {
-      current().appendChild(document.createTextNode(op.char));
+      el.textContent += text[idx];
+      idx++;
       setTimeout(typeNext, speed);
     }
-  }
 
-  typeNext();
-}
-
-function triggerSiblingReveals(el) {
-  // Find the parent container and trigger reveals on elements that come after the heading
-  const parent = el.closest('.container') || el.parentElement;
-  if (!parent) return;
-
-  const reveals = parent.querySelectorAll('.reveal');
-  reveals.forEach((r, idx) => {
-    setTimeout(() => {
-      r.classList.add('visible');
-    }, idx * 120);
+    // If inside a reveal element, wait for the reveal to finish before typing
+    const revealParent = el.closest('.reveal');
+    if (revealParent) {
+      const observer = new MutationObserver(() => {
+        if (revealParent.classList.contains('visible')) {
+          observer.disconnect();
+          setTimeout(typeNext, 300);
+        }
+      });
+      observer.observe(revealParent, { attributes: true, attributeFilter: ['class'] });
+    } else {
+      typeNext();
+    }
   });
 }
 
