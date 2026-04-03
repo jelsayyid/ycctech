@@ -397,9 +397,14 @@ function initTypewriter() {
   el.style.minHeight = computedHeight + 'px';
 
   // Determine which text to type:
-  // If there's a visible-text span (desktop/mobile pattern), type only the visible one
+  // If there's a desktop/mobile pattern, type whichever span is currently visible
   const desktopSpan = el.querySelector('.desktop-text');
-  const sourceHTML = desktopSpan ? desktopSpan.innerHTML : el.innerHTML;
+  const mobileSpan = el.querySelector('.mobile-text');
+  let visibleSpan = null;
+  if (desktopSpan && mobileSpan) {
+    visibleSpan = getComputedStyle(desktopSpan).display !== 'none' ? desktopSpan : mobileSpan;
+  }
+  const sourceHTML = visibleSpan ? visibleSpan.innerHTML : el.innerHTML;
 
   // Parse source HTML into flat operations using an off-DOM temp element
   const ops = [];
@@ -424,20 +429,20 @@ function initTypewriter() {
   walk(temp);
 
   // Clear the element, but if it has desktop/mobile spans, rebuild that structure
-  const hasDesktopMobile = !!desktopSpan;
-  const mobileSpan = el.querySelector('.mobile-text');
-  const mobileHTML = mobileSpan ? mobileSpan.outerHTML : '';
+  const hasDesktopMobile = !!visibleSpan;
+  const hiddenSpan = visibleSpan === desktopSpan ? mobileSpan : desktopSpan;
+  const hiddenHTML = hiddenSpan ? hiddenSpan.outerHTML : '';
 
   el.innerHTML = '';
   el.classList.add('typewriter-active');
 
-  // If desktop/mobile pattern, create the desktop span as the typing target
+  // If desktop/mobile pattern, create the visible span as the typing target
   let typingRoot = el;
   if (hasDesktopMobile) {
-    const newDesktop = document.createElement('span');
-    newDesktop.className = 'desktop-text';
-    el.appendChild(newDesktop);
-    typingRoot = newDesktop;
+    const newVisible = document.createElement('span');
+    newVisible.className = visibleSpan.className;
+    el.appendChild(newVisible);
+    typingRoot = newVisible;
   }
 
   // Use a stack to track nested elements
@@ -449,9 +454,9 @@ function initTypewriter() {
 
   function typeNext() {
     if (idx >= ops.length) {
-      // Done -- restore mobile span if needed, finish up
-      if (hasDesktopMobile && mobileHTML) {
-        el.insertAdjacentHTML('beforeend', mobileHTML);
+      // Done -- restore hidden span if needed, finish up
+      if (hasDesktopMobile && hiddenHTML) {
+        el.insertAdjacentHTML('beforeend', hiddenHTML);
       }
       el.classList.remove('typewriter-active');
       el.classList.add('typewriter-done');
