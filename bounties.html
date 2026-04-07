@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bounty Board | YCC Tech Division</title>
-  <meta name="description" content="$200–$500 bounties for the infrastructure Yale developers actually need. Currently under review -- claiming opens soon.">
+  <meta name="description" content="$200-$500 bounties for the infrastructure Yale developers actually need. Currently under review -- claiming opens soon.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a0a'/><text x='50' y='62' font-size='48' fill='%23e0e0e0' text-anchor='middle' font-family='monospace' dominant-baseline='middle'>//</text></svg>">
 </head>
@@ -72,7 +72,7 @@
           <div>
             <div class="bounty-card__header">
               <h3 class="bounty-card__title">Yale Dining API</h3>
-              <span class="bounty-card__amount">$200</span>
+              <span class="bounty-card__amount">$400</span>
             </div>
             <p class="bounty-card__desc">Build a clean, documented REST API that exposes Yale dining hall menus, hours, and nutritional info. Currently this data is locked inside Yale's dining site with no programmatic access. The single most-requested data source in Yale's student dev community.</p>
             <div class="bounty-card__tags">
@@ -83,7 +83,7 @@
           </div>
           <div class="bounty-card__actions">
             <div class="bounty-card__status bounty-card__status--review">Under Review</div>
-            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Yale Dining API', '$200')">Coming Soon</button>
+            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Yale Dining API', '$400')">Coming Soon</button>
           </div>
           <div class="bounty-card__detail" id="detail-dining-api">
             <h4>Acceptance Criteria</h4>
@@ -104,12 +104,42 @@
           </div>
         </div>
 
-        <!-- Bounty 2: Events Aggregator -->
+        <!-- Bounty 2: Yale Courses API -->
+        <div class="bounty-card" data-status="review" data-bounty="courses-api">
+          <div>
+            <div class="bounty-card__header">
+              <h3 class="bounty-card__title">Yale Courses GraphQL/REST API</h3>
+              <span class="bounty-card__amount">$500</span>
+            </div>
+            <p class="bounty-card__desc">Create a public API layer on top of Yale course data: titles, descriptions, evaluations, schedules, instructors. CourseTable exists but doesn't expose a general-purpose API. Build a stable, versioned endpoint any student project can query.</p>
+            <div class="bounty-card__tags">
+              <span class="bounty-card__tag">GraphQL</span>
+              <span class="bounty-card__tag">REST</span>
+              <span class="bounty-card__tag">Course Data</span>
+            </div>
+          </div>
+          <div class="bounty-card__actions">
+            <div class="bounty-card__status bounty-card__status--review">Under Review</div>
+            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Yale Courses API', '$500')">Coming Soon</button>
+          </div>
+          <div class="bounty-card__detail" id="detail-courses-api">
+            <h4>Acceptance Criteria</h4>
+            <ul>
+              <li>GraphQL and/or REST API covering course titles, descriptions, evaluations, schedules, instructors</li>
+              <li>Stable, versioned endpoint</li>
+              <li>Clear documentation with query examples</li>
+              <li>Can be used by schedule optimizers, major planners, or any student tool</li>
+              <li>Public GitHub repo</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bounty 3: Events Aggregator -->
         <div class="bounty-card" data-status="review" data-bounty="events-api">
           <div>
             <div class="bounty-card__header">
               <h3 class="bounty-card__title">Yale Events Aggregator API</h3>
-              <span class="bounty-card__amount">$200</span>
+              <span class="bounty-card__amount">$300</span>
             </div>
             <p class="bounty-card__desc">Yale events are scattered across dozens of department calendars, OrgHub, residential college sites, and random Google Forms. Build a scraper + normalized API with a unified feed. Filtering by date, category, and location. Bonus for iCal export.</p>
             <div class="bounty-card__tags">
@@ -120,7 +150,7 @@
           </div>
           <div class="bounty-card__actions">
             <div class="bounty-card__status bounty-card__status--review">Under Review</div>
-            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Yale Events Aggregator', '$200')">Coming Soon</button>
+            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Yale Events Aggregator', '$300')">Coming Soon</button>
           </div>
           <div class="bounty-card__detail" id="detail-events-api">
             <h4>Acceptance Criteria</h4>
@@ -134,7 +164,7 @@
         </div>
 
         <!-- Bounty 4: Starter Kit -->
-        <div class="bounty-card" data-status="review" data-bounty="starter-kit">
+        <div class="bounty-card" data-status="open" data-bounty="starter-kit">
           <div>
             <div class="bounty-card__header">
               <h3 class="bounty-card__title">"Hello Yale Dev" Starter Kit</h3>
@@ -148,8 +178,8 @@
             </div>
           </div>
           <div class="bounty-card__actions">
-            <div class="bounty-card__status bounty-card__status--review">Under Review</div>
-            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Hello Yale Dev Starter Kit', '$200')">Coming Soon</button>
+            <div class="bounty-card__status bounty-card__status--open">Open</div>
+            <button class="btn--claim" onclick="claimBounty('Hello Yale Dev Starter Kit', '$200')">Claim Bounty</button>
           </div>
           <div class="bounty-card__detail" id="detail-starter-kit">
             <h4>Acceptance Criteria</h4>
@@ -165,11 +195,11 @@
         </div>
 
         <!-- Bounty 5: Spaces API -->
-        <div class="bounty-card" data-status="review" data-bounty="spaces-api">
+        <div class="bounty-card" data-status="open" data-bounty="spaces-api">
           <div>
             <div class="bounty-card__header">
               <h3 class="bounty-card__title">Yale Spaces &amp; Room Availability API</h3>
-              <span class="bounty-card__amount">$500</span>
+              <span class="bounty-card__amount">$350</span>
             </div>
             <p class="bounty-card__desc">Build an API that surfaces room availability and bookings across Yale's reservable spaces (libraries, study rooms, residential college spaces. Right now students check three different systems. A unified data layer for better booking tools.</p>
             <div class="bounty-card__tags">
@@ -179,8 +209,8 @@
             </div>
           </div>
           <div class="bounty-card__actions">
-            <div class="bounty-card__status bounty-card__status--review">Under Review</div>
-            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;" onclick="claimBounty('Yale Spaces API', '$500')">Coming Soon</button>
+            <div class="bounty-card__status bounty-card__status--open">Open</div>
+            <button class="btn--claim" onclick="claimBounty('Yale Spaces API', '$350')">Claim Bounty</button>
           </div>
           <div class="bounty-card__detail" id="detail-spaces-api">
             <h4>Acceptance Criteria</h4>
@@ -250,7 +280,7 @@
   <!-- CTA -->
   <section class="cta-banner">
     <div class="cta-banner__bg"></div>
-    <h2 class="cta-banner__title reveal">$1,350 in bounties. Under review.</h2>
+    <h2 class="cta-banner__title reveal">$2,000 in bounties. Under review.</h2>
     <p class="cta-banner__desc reveal">We're finalizing which bounties to fund. Once they go live, pick the one that matches your skills and start building.</p>
     <div class="reveal">
       <a href="#" class="btn btn--primary" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Back to Top</a>
