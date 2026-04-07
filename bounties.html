@@ -67,7 +67,71 @@
     <div class="container">
       <div class="bounty-grid reveal-stagger">
 
-        <!-- Bounty 1: Yale Dining API -->
+        <!-- Open Bounties -->
+
+        <!-- Starter Kit -->
+        <div class="bounty-card" data-status="open" data-bounty="starter-kit">
+          <div>
+            <div class="bounty-card__header">
+              <h3 class="bounty-card__title">"Hello Yale Dev" Starter Kit</h3>
+              <span class="bounty-card__amount">$200</span>
+            </div>
+            <p class="bounty-card__desc">A batteries-included template repo for building Yale-facing web apps. CAS authentication scaffolding, sensible folder structure, deployment instructions. Goal: a freshman goes from zero to a deployed, CAS-authenticated app in under an hour.</p>
+            <div class="bounty-card__tags">
+              <span class="bounty-card__tag">Next.js</span>
+              <span class="bounty-card__tag">CAS Auth</span>
+              <span class="bounty-card__tag">Template</span>
+            </div>
+          </div>
+          <div class="bounty-card__actions">
+            <div class="bounty-card__status bounty-card__status--open">Open</div>
+            <button class="btn--claim" onclick="claimBounty('Hello Yale Dev Starter Kit', '$200')">Claim Bounty</button>
+          </div>
+          <div class="bounty-card__detail" id="detail-starter-kit">
+            <h4>Acceptance Criteria</h4>
+            <ul>
+              <li>Template repo with CAS authentication scaffolding</li>
+              <li>Sensible folder structure for a Yale-facing web app</li>
+              <li>Deployment instructions (Vercel/Railway/etc.)</li>
+              <li>Short tutorial: zero to deployed in under an hour</li>
+              <li>Reasonable stack choice (Next.js recommended)</li>
+              <li>Well-documented README</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Spaces API -->
+        <div class="bounty-card" data-status="open" data-bounty="spaces-api">
+          <div>
+            <div class="bounty-card__header">
+              <h3 class="bounty-card__title">Yale Spaces &amp; Room Availability API</h3>
+              <span class="bounty-card__amount">$500</span>
+            </div>
+            <p class="bounty-card__desc">Build an API that surfaces room availability and bookings across Yale's reservable spaces (libraries, study rooms, residential college spaces. Right now students check three different systems. A unified data layer for better booking tools.</p>
+            <div class="bounty-card__tags">
+              <span class="bounty-card__tag">API</span>
+              <span class="bounty-card__tag">Room Booking</span>
+              <span class="bounty-card__tag">Integration</span>
+            </div>
+          </div>
+          <div class="bounty-card__actions">
+            <div class="bounty-card__status bounty-card__status--open">Open</div>
+            <button class="btn--claim" onclick="claimBounty('Yale Spaces API', '$500')">Claim Bounty</button>
+          </div>
+          <div class="bounty-card__detail" id="detail-spaces-api">
+            <h4>Acceptance Criteria</h4>
+            <ul>
+              <li>API covering room availability across libraries, study rooms, res college spaces</li>
+              <li>Unified data model across Yale's booking systems</li>
+              <li>Filtering by building, capacity, time slot</li>
+              <li>Public repo with documentation</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Under Review Bounties -->
+
+        <!-- Yale Dining API -->
         <div class="bounty-card" data-status="review" data-bounty="dining-api">
           <div>
             <div class="bounty-card__header">
@@ -104,7 +168,7 @@
           </div>
         </div>
 
-        <!-- Bounty 2: Events Aggregator -->
+        <!-- Events Aggregator -->
         <div class="bounty-card" data-status="review" data-bounty="events-api">
           <div>
             <div class="bounty-card__header">
@@ -133,67 +197,7 @@
           </div>
         </div>
 
-        <!-- Bounty 4: Starter Kit -->
-        <div class="bounty-card" data-status="open" data-bounty="starter-kit">
-          <div>
-            <div class="bounty-card__header">
-              <h3 class="bounty-card__title">"Hello Yale Dev" Starter Kit</h3>
-              <span class="bounty-card__amount">$200</span>
-            </div>
-            <p class="bounty-card__desc">A batteries-included template repo for building Yale-facing web apps. CAS authentication scaffolding, sensible folder structure, deployment instructions. Goal: a freshman goes from zero to a deployed, CAS-authenticated app in under an hour.</p>
-            <div class="bounty-card__tags">
-              <span class="bounty-card__tag">Next.js</span>
-              <span class="bounty-card__tag">CAS Auth</span>
-              <span class="bounty-card__tag">Template</span>
-            </div>
-          </div>
-          <div class="bounty-card__actions">
-            <div class="bounty-card__status bounty-card__status--open">Open</div>
-            <button class="btn--claim" onclick="claimBounty('Hello Yale Dev Starter Kit', '$200')">Claim Bounty</button>
-          </div>
-          <div class="bounty-card__detail" id="detail-starter-kit">
-            <h4>Acceptance Criteria</h4>
-            <ul>
-              <li>Template repo with CAS authentication scaffolding</li>
-              <li>Sensible folder structure for a Yale-facing web app</li>
-              <li>Deployment instructions (Vercel/Railway/etc.)</li>
-              <li>Short tutorial: zero to deployed in under an hour</li>
-              <li>Reasonable stack choice (Next.js recommended)</li>
-              <li>Well-documented README</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Bounty 5: Spaces API -->
-        <div class="bounty-card" data-status="open" data-bounty="spaces-api">
-          <div>
-            <div class="bounty-card__header">
-              <h3 class="bounty-card__title">Yale Spaces &amp; Room Availability API</h3>
-              <span class="bounty-card__amount">$500</span>
-            </div>
-            <p class="bounty-card__desc">Build an API that surfaces room availability and bookings across Yale's reservable spaces (libraries, study rooms, residential college spaces. Right now students check three different systems. A unified data layer for better booking tools.</p>
-            <div class="bounty-card__tags">
-              <span class="bounty-card__tag">API</span>
-              <span class="bounty-card__tag">Room Booking</span>
-              <span class="bounty-card__tag">Integration</span>
-            </div>
-          </div>
-          <div class="bounty-card__actions">
-            <div class="bounty-card__status bounty-card__status--open">Open</div>
-            <button class="btn--claim" onclick="claimBounty('Yale Spaces API', '$500')">Claim Bounty</button>
-          </div>
-          <div class="bounty-card__detail" id="detail-spaces-api">
-            <h4>Acceptance Criteria</h4>
-            <ul>
-              <li>API covering room availability across libraries, study rooms, res college spaces</li>
-              <li>Unified data model across Yale's booking systems</li>
-              <li>Filtering by building, capacity, time slot</li>
-              <li>Public repo with documentation</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Bounty 6: Map Data -->
+        <!-- Map Data -->
         <div class="bounty-card" data-status="review" data-bounty="map-api">
           <div>
             <div class="bounty-card__header">
