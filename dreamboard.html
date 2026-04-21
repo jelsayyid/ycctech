@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Builder's Dream Board | YCC Tech Division</title>
+  <title>Dreamboard | YCC Tech Division</title>
   <meta name="description" content="Micro-grants for hardware components blocking your project. $40–$150 for the parts you need to ship real things.">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a0a'/><text x='50' y='62' font-size='48' fill='%23e0e0e0' text-anchor='middle' font-family='monospace' dominant-baseline='middle'>//</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230a0a0a'/><path d='M 36 76 L 64 24' stroke='%236b9fff' stroke-width='14' stroke-linecap='square'/></svg>">
 </head>
 <body>
 
@@ -38,8 +38,9 @@
   <!-- Hero -->
   <section class="section">
     <div class="container">
-      <h1 class="section__title">dreamboard</h1>
-      <p class="section__subtitle">$40–$150 micro-grants for hardware components. 5-min application, 1-week turnaround.</p>
+      <span class="kicker" style="margin-bottom: 1rem;">Dreamboard</span>
+      <h1 class="section__title" style="font-size: clamp(2rem, 4.5vw, 2.75rem); letter-spacing: -0.03em; line-height: 1.08; margin-top: 0.75rem;">Hardware grants for the parts you need to ship.</h1>
+      <p class="section__subtitle">$40–$150 micro-grants for hardware components. Five-minute application, one-week turnaround.</p>
     </div>
   </section>
 
@@ -48,36 +49,42 @@
     <div class="container">
       <div class="about-grid">
         <div>
-          <h2 class="section__title">process</h2>
-          <ul class="eligibility-list" style="margin-top:1rem;">
-            <li><strong>apply.</strong> describe the project, list components with prices.</li>
-            <li><strong>review.</strong> rolling. one-week turnaround.</li>
-            <li><strong>parts.</strong> reimbursement after purchase, or procured through ycc.</li>
-            <li><strong>ship.</strong> brief end-of-semester update.</li>
+          <div class="section__header">
+            <span class="kicker">Process</span>
+          </div>
+          <ul class="eligibility-list">
+            <li><strong>Apply.</strong> Describe the project, list components with prices.</li>
+            <li><strong>Review.</strong> Rolling. One-week turnaround.</li>
+            <li><strong>Parts.</strong> Reimbursement after purchase, or procured through YCC.</li>
+            <li><strong>Ship.</strong> Brief end-of-semester update.</li>
           </ul>
 
-          <h2 class="section__title" style="margin-top:2rem;">covered</h2>
-          <ul class="eligibility-list" style="margin-top:1rem;">
-            <li>microcontrollers (arduino, esp32, teensy).</li>
-            <li>single-board computers (raspberry pi, jetson).</li>
-            <li>sensors, actuators, motor drivers.</li>
-            <li>prototyping supplies.</li>
+          <div class="section__header" style="margin-top:2.5rem;">
+            <span class="kicker">Covered</span>
+          </div>
+          <ul class="eligibility-list">
+            <li>Microcontrollers (Arduino, ESP32, Teensy).</li>
+            <li>Single-board computers (Raspberry Pi, Jetson).</li>
+            <li>Sensors, actuators, motor drivers.</li>
+            <li>Prototyping supplies.</li>
           </ul>
-          <p style="color:var(--muted); margin-top:0.75rem; font-size:0.9rem;">not covered: labor, software licenses, cloud hosting.</p>
+          <p style="color:var(--muted); margin-top:1rem; font-size:0.9rem;">Not covered: labor, software licenses, cloud hosting.</p>
         </div>
 
         <div>
-          <h2 class="section__title">apply</h2>
-          <form class="modal__form" id="dreamboardForm" onsubmit="handleDreamboard(event)" style="margin-top:1rem;">
-            <input type="text" placeholder="your name" required>
-            <input type="email" placeholder="yale email" required>
-            <input type="text" placeholder="project title" required>
-            <textarea placeholder="project description" style="min-height:90px;" required></textarea>
-            <textarea placeholder="components + prices" style="min-height:80px;" required></textarea>
-            <input type="text" placeholder="total cost" required>
-            <input type="text" placeholder="team members">
-            <input type="text" placeholder="other funding">
-            <button type="submit" class="btn btn--primary">submit</button>
+          <div class="section__header">
+            <span class="kicker">Apply</span>
+          </div>
+          <form class="modal__form" id="dreamboardForm" onsubmit="handleDreamboard(event)">
+            <input type="text" placeholder="Your name" required>
+            <input type="email" placeholder="Yale email" required>
+            <input type="text" placeholder="Project title" required>
+            <textarea placeholder="Project description" style="min-height:90px;" required></textarea>
+            <textarea placeholder="Components + prices" style="min-height:80px;" required></textarea>
+            <input type="text" placeholder="Total cost" required>
+            <input type="text" placeholder="Team members">
+            <input type="text" placeholder="Other funding">
+            <button type="submit" class="btn btn--primary">Submit application</button>
           </form>
         </div>
       </div>
@@ -85,7 +92,7 @@
   </section>
 
   <footer class="footer">
-    <div class="footer__left">2026 · ycc tech division</div>
+    <div class="footer__left">2026 — ycc/tech</div>
     <div class="footer__right">
       <a href="index.html">home</a>
       <a href="mailto:ycc@yale.edu">ycc@yale.edu</a>

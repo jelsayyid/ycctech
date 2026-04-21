@@ -129,7 +129,7 @@ function claimBounty(name, amount) {
   const nameInput = document.getElementById('claimBountyName');
   const desc = document.getElementById('claimModalDesc');
   if (nameInput) nameInput.value = name;
-  if (desc) desc.textContent = `You're claiming "${name}" (${amount}). Once claimed, it's yours. No one else can take it. You'll have 3–4 weeks to build and submit.`;
+  if (desc) desc.textContent = `You're claiming "${name}" (${amount}). Wait for our email confirmation before starting work. You'll have one week from confirmation to build and submit.`;
   openModal('claimModal');
 }
 
@@ -160,7 +160,7 @@ function handleClaim(e) {
       <div style="text-align:center; padding:2rem 0;">
         <div style="font-size:1.5rem; margin-bottom:1rem; font-family:var(--font-mono); color:var(--accent);">Done</div>
         <h3 class="modal__title" style="text-align:center;">Bounty Claimed</h3>
-        <p class="modal__desc" style="text-align:center;">You're locked in. Check your email for next steps and the full spec. Start building!</p>
+        <p class="modal__desc" style="text-align:center;">Claim received. Watch your email — we'll send confirmation and the full spec before you start building.</p>
         <button class="btn btn--outline" onclick="closeModal('claimModal')" style="margin:0 auto;">Close</button>
       </div>
     `;
@@ -270,17 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-// Active filter button styling
-const style = document.createElement('style');
-style.textContent = `
-  .active-filter {
-    border-color: var(--text-primary) !important;
-    color: var(--text-primary) !important;
-    background: var(--bg-raised) !important;
-  }
-`;
-document.head.appendChild(style);
 
 // --- Bounty Card Expand/Collapse ---
 document.addEventListener('DOMContentLoaded', () => {
