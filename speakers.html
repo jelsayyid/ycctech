@@ -38,9 +38,8 @@
   <!-- Hero -->
   <section class="section">
     <div class="container">
-      <div class="label">speaker series</div>
-      <h1 class="section__title">who should we bring to campus?</h1>
-      <p class="section__subtitle">fireside chats with yale alumni in tech. unscripted conversations about what they're building and what they'd do differently. nominate who you want to hear from.</p>
+      <h1 class="section__title">speaker series</h1>
+      <p class="section__subtitle">fireside chats with yale alumni in tech. nominate someone.</p>
     </div>
   </section>
 
@@ -49,62 +48,32 @@
     <div class="container">
       <div class="about-grid about-grid--half">
         <div>
-          <div class="section__eyebrow">nominate</div>
-          <h2 class="section__title">know someone?</h2>
-          <p style="color:var(--muted); margin-top:0.75rem; line-height:1.7;">yale alumni in tech, founders, researchers, professors doing interesting work. casual fireside chat, no slides.</p>
-          <div class="spec-block" style="margin-top:1.5rem;">
-            <div class="spec-block__title">criteria</div>
-            <div class="spec-block__content">
-              <ul style="list-style:none;">
-                <li style="padding:0.15rem 0 0.15rem 1.2rem; position:relative;"><span style="position:absolute;left:0;">-</span> yale connection (alum, faculty, researcher).</li>
-                <li style="padding:0.15rem 0 0.15rem 1.2rem; position:relative;"><span style="position:absolute;left:0;">-</span> building something students care about.</li>
-                <li style="padding:0.15rem 0 0.15rem 1.2rem; position:relative;"><span style="position:absolute;left:0;">-</span> willing to keep it real, not a corporate keynote.</li>
-                <li style="padding:0.15rem 0 0.15rem 1.2rem; position:relative;"><span style="position:absolute;left:0;">-</span> lowkey is fine. professors count.</li>
-              </ul>
-            </div>
-          </div>
+          <h2 class="section__title">criteria</h2>
+          <ul class="eligibility-list" style="margin-top:1rem;">
+            <li>yale connection (alum, faculty, researcher).</li>
+            <li>building something students care about.</li>
+            <li>willing to keep it real, not a corporate keynote.</li>
+          </ul>
         </div>
         <div>
           <form class="modal__form" id="speakerForm" onsubmit="handleSpeakerNom(event)">
             <input type="text" placeholder="your name" required>
             <input type="email" placeholder="yale email" required>
             <input type="text" placeholder="speaker name" required>
-            <input type="text" placeholder="connection to yale (e.g. cs '18 alum)">
-            <textarea placeholder="why them? what would they talk about?" style="min-height:110px;"></textarea>
-            <button type="submit" class="btn btn--primary">submit nomination</button>
+            <input type="text" placeholder="connection to yale">
+            <textarea placeholder="why them?" style="min-height:100px;"></textarea>
+            <button type="submit" class="btn btn--primary">submit</button>
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- What to expect -->
-  <section class="section section--bordered">
-    <div class="container">
-      <div class="section__header">
-        <div class="section__eyebrow">format</div>
-        <h2 class="section__title">fireside chats, not lectures</h2>
-        <p class="section__subtitle">small group, unscripted. ~30 min of conversation, ~20 min q&amp;a. catered.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-banner">
-    <h2 class="cta-banner__title">help us build the lineup.</h2>
-    <p class="cta-banner__desc">the best speaker ideas come from students who know who's doing interesting work. 30 seconds.</p>
-    <div>
-      <a href="#" class="btn btn--primary" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">nominate →</a>
-    </div>
-  </section>
-
   <footer class="footer">
-    <div class="footer__left">// 2026 ycc tech division</div>
+    <div class="footer__left">2026 · ycc tech division</div>
     <div class="footer__right">
       <a href="index.html">home</a>
-      <a href="bounties.html">bounties</a>
-      <a href="prize.html">prize</a>
-      <a href="mailto:ycc@yale.edu">contact</a>
+      <a href="mailto:ycc@yale.edu">ycc@yale.edu</a>
     </div>
   </footer>
 

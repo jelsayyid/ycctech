@@ -38,9 +38,8 @@
   <!-- Hero -->
   <section class="section">
     <div class="container">
-      <div class="label">builder's dreamboard</div>
-      <h1 class="section__title">your project stalled because of an $80 part?</h1>
-      <p class="section__subtitle">micro-grants for the physical components blocking your hardware projects — microcontrollers, sensors, motors, prototyping supplies. $40–$150 that stands between your design and a working system. apply in 5 minutes, hear back within a week.</p>
+      <h1 class="section__title">dreamboard</h1>
+      <p class="section__subtitle">$40–$150 micro-grants for hardware components. 5-min application, 1-week turnaround.</p>
     </div>
   </section>
 
@@ -49,110 +48,47 @@
     <div class="container">
       <div class="about-grid">
         <div>
-          <div class="section__eyebrow">how it works</div>
-          <h2 class="section__title">micro-grants for real hardware</h2>
+          <h2 class="section__title">process</h2>
+          <ul class="eligibility-list" style="margin-top:1rem;">
+            <li><strong>apply.</strong> describe the project, list components with prices.</li>
+            <li><strong>review.</strong> rolling. one-week turnaround.</li>
+            <li><strong>parts.</strong> reimbursement after purchase, or procured through ycc.</li>
+            <li><strong>ship.</strong> brief end-of-semester update.</li>
+          </ul>
 
-          <div class="timeline" style="margin-top:1.5rem;">
-            <div class="timeline__item active">
-              <div class="timeline__dot"></div>
-              <div class="timeline__date">step 1</div>
-              <div class="timeline__title">apply</div>
-              <div class="timeline__desc">describe the project, list components with prices, say what you're building.</div>
-            </div>
-            <div class="timeline__item">
-              <div class="timeline__dot"></div>
-              <div class="timeline__date">step 2</div>
-              <div class="timeline__title">review</div>
-              <div class="timeline__desc">rolling review. one week turnaround.</div>
-            </div>
-            <div class="timeline__item">
-              <div class="timeline__dot"></div>
-              <div class="timeline__date">step 3</div>
-              <div class="timeline__title">parts</div>
-              <div class="timeline__desc">reimbursement after purchase, or we procure directly through ycc.</div>
-            </div>
-            <div class="timeline__item">
-              <div class="timeline__dot"></div>
-              <div class="timeline__date">step 4</div>
-              <div class="timeline__title">ship</div>
-              <div class="timeline__desc">brief end-of-semester update so we can showcase what got built.</div>
-            </div>
-          </div>
-
-          <div class="spec-block" style="margin-top:1.5rem;">
-            <div class="spec-block__title">what we fund</div>
-            <div class="spec-block__content">
-              <ul style="list-style:none;">
-                <li style="padding:0.15rem 0 0.15rem 1.2rem; position:relative;"><span style="position:absolute;left:0;">+</span> microcontrollers (arduino, esp32, teensy).</li>
-                <li style="padding:0.15rem 0 0.15rem 1.2rem; position:relative;"><span style="position:absolute;left:0;">+</span> single-board computers (raspberry pi, jetson nano).</li>
-                <li style="padding:0.15rem 0 0.15rem 1.2rem; position:relative;"><span style="position:absolute;left:0;">+</span> sensors, actuators, motor drivers.</li>
-                <li style="padding:0.15rem 0 0.15rem 1.2rem; position:relative;"><span style="position:absolute;left:0;">+</span> prototyping supplies (breadboards, wiring, enclosures).</li>
-                <li style="padding:0.15rem 0 0.15rem 1.2rem; position:relative;"><span style="position:absolute;left:0;">+</span> other physical components essential to your project.</li>
-              </ul>
-              <p style="margin-top:0.75rem;">not covered: labor, software licenses, cloud hosting, overhead.</p>
-            </div>
-          </div>
+          <h2 class="section__title" style="margin-top:2rem;">covered</h2>
+          <ul class="eligibility-list" style="margin-top:1rem;">
+            <li>microcontrollers (arduino, esp32, teensy).</li>
+            <li>single-board computers (raspberry pi, jetson).</li>
+            <li>sensors, actuators, motor drivers.</li>
+            <li>prototyping supplies.</li>
+          </ul>
+          <p style="color:var(--muted); margin-top:0.75rem; font-size:0.9rem;">not covered: labor, software licenses, cloud hosting.</p>
         </div>
 
         <div>
-          <div class="section__eyebrow">apply</div>
-          <h2 class="section__title">component grant</h2>
+          <h2 class="section__title">apply</h2>
           <form class="modal__form" id="dreamboardForm" onsubmit="handleDreamboard(event)" style="margin-top:1rem;">
             <input type="text" placeholder="your name" required>
             <input type="email" placeholder="yale email" required>
             <input type="text" placeholder="project title" required>
-            <textarea placeholder="project description — what are you building, why? 3-5 sentences." style="min-height:100px;" required></textarea>
-            <textarea placeholder="components + prices — e.g. esp32 $12, servo $8, moisture sensor $6" style="min-height:90px;" required></textarea>
-            <input type="text" placeholder="total estimated cost (e.g. $85)" required>
-            <input type="text" placeholder="team members (names and yale emails)">
-            <input type="text" placeholder="other funding (source + amount)">
-            <button type="submit" class="btn btn--primary">submit application</button>
+            <textarea placeholder="project description" style="min-height:90px;" required></textarea>
+            <textarea placeholder="components + prices" style="min-height:80px;" required></textarea>
+            <input type="text" placeholder="total cost" required>
+            <input type="text" placeholder="team members">
+            <input type="text" placeholder="other funding">
+            <button type="submit" class="btn btn--primary">submit</button>
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Example projects -->
-  <section class="section section--bordered">
-    <div class="container">
-      <div class="section__header">
-        <div class="section__eyebrow">examples</div>
-        <h2 class="section__title">real hardware, real projects</h2>
-      </div>
-      <div class="initiatives">
-        <div class="initiative-card">
-          <h3 class="initiative-card__title">environmental sensors</h3>
-          <p class="initiative-card__desc">air quality, temperature/humidity, noise level. dorm, lab, apartment — wherever.</p>
-        </div>
-        <div class="initiative-card">
-          <h3 class="initiative-card__title">automation</h3>
-          <p class="initiative-card__desc">composting, smart lighting, irrigation controllers. campus deployments or personal projects.</p>
-        </div>
-        <div class="initiative-card">
-          <h3 class="initiative-card__title">iot &amp; robotics</h3>
-          <p class="initiative-card__desc">connected devices, location beacons, robotic prototypes. anything with a microcontroller and a purpose.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-banner">
-    <h2 class="cta-banner__title">don't let $80 kill a good project.</h2>
-    <p class="cta-banner__desc">working design, real use case — we'll fund the parts. 5-minute app, 1-week turnaround.</p>
-    <div>
-      <a href="#" class="btn btn--primary" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">apply →</a>
-    </div>
-  </section>
-
   <footer class="footer">
-    <div class="footer__left">// 2026 ycc tech division</div>
+    <div class="footer__left">2026 · ycc tech division</div>
     <div class="footer__right">
       <a href="index.html">home</a>
-      <a href="bounties.html">bounties</a>
-      <a href="prize.html">prize</a>
-      <a href="mailto:ycc@yale.edu">contact</a>
+      <a href="mailto:ycc@yale.edu">ycc@yale.edu</a>
     </div>
   </footer>
 
