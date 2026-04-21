@@ -6,7 +6,7 @@
   <title>Speaker Series | YCC Tech Division</title>
   <meta name="description" content="Nominate a Yale alum, founder, or tech builder for a fireside chat. Help us bring the best voices to campus.">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a0a'/><text x='50' y='62' font-size='48' fill='%23e0e0e0' text-anchor='middle' font-family='monospace' dominant-baseline='middle'>//</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230a0a0a'/><path d='M 36 76 L 64 24' stroke='%236b9fff' stroke-width='14' stroke-linecap='square'/></svg>">
 </head>
 <body>
 
@@ -38,8 +38,9 @@
   <!-- Hero -->
   <section class="section">
     <div class="container">
-      <h1 class="section__title">speaker series</h1>
-      <p class="section__subtitle">fireside chats with yale alumni in tech. nominate someone.</p>
+      <span class="kicker" style="margin-bottom: 1rem;">Speaker Series</span>
+      <h1 class="section__title" style="font-size: clamp(2rem, 4.5vw, 2.75rem); letter-spacing: -0.03em; line-height: 1.08; margin-top: 0.75rem;">Fireside chats with Yale alumni in tech.</h1>
+      <p class="section__subtitle">No corporate keynotes. Know someone great? Nominate them.</p>
     </div>
   </section>
 
@@ -48,21 +49,26 @@
     <div class="container">
       <div class="about-grid about-grid--half">
         <div>
-          <h2 class="section__title">criteria</h2>
-          <ul class="eligibility-list" style="margin-top:1rem;">
-            <li>yale connection (alum, faculty, researcher).</li>
-            <li>building something students care about.</li>
-            <li>willing to keep it real, not a corporate keynote.</li>
+          <div class="section__header">
+            <span class="kicker">Criteria</span>
+          </div>
+          <ul class="eligibility-list">
+            <li>Yale connection (alum, faculty, researcher).</li>
+            <li>Building something students care about.</li>
+            <li>Willing to keep it real, not a corporate keynote.</li>
           </ul>
         </div>
         <div>
+          <div class="section__header">
+            <span class="kicker">Nominate</span>
+          </div>
           <form class="modal__form" id="speakerForm" onsubmit="handleSpeakerNom(event)">
-            <input type="text" placeholder="your name" required>
-            <input type="email" placeholder="yale email" required>
-            <input type="text" placeholder="speaker name" required>
-            <input type="text" placeholder="connection to yale">
-            <textarea placeholder="why them?" style="min-height:100px;"></textarea>
-            <button type="submit" class="btn btn--primary">submit</button>
+            <input type="text" placeholder="Your name" required>
+            <input type="email" placeholder="Yale email" required>
+            <input type="text" placeholder="Speaker name" required>
+            <input type="text" placeholder="Connection to Yale">
+            <textarea placeholder="Why them?" style="min-height:100px;"></textarea>
+            <button type="submit" class="btn btn--primary">Submit nomination</button>
           </form>
         </div>
       </div>
@@ -70,7 +76,7 @@
   </section>
 
   <footer class="footer">
-    <div class="footer__left">2026 · ycc tech division</div>
+    <div class="footer__left">2026 — ycc/tech</div>
     <div class="footer__right">
       <a href="index.html">home</a>
       <a href="mailto:ycc@yale.edu">ycc@yale.edu</a>

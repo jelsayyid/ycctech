@@ -6,7 +6,7 @@
   <title>Bounty Board | YCC Tech Division</title>
   <meta name="description" content="$200-$500 bounties for the infrastructure Yale developers actually need. Currently under review -- claiming opens soon.">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a0a'/><text x='50' y='62' font-size='48' fill='%23e0e0e0' text-anchor='middle' font-family='monospace' dominant-baseline='middle'>//</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230a0a0a'/><path d='M 36 76 L 64 24' stroke='%236b9fff' stroke-width='14' stroke-linecap='square'/></svg>">
 </head>
 <body>
 
@@ -38,24 +38,23 @@
   <!-- Header -->
   <section class="section">
     <div class="container">
-      <h1 class="section__title">bounties</h1>
-      <p class="section__subtitle">$200–$500 per bounty. 2-week build. all currently claimed.</p>
+      <span class="kicker" style="margin-bottom: 1rem;">Bounty Board</span>
+      <h1 class="section__title" style="font-size: clamp(2rem, 4.5vw, 2.75rem); letter-spacing: -0.03em; line-height: 1.08; margin-top: 0.75rem;">Infrastructure worth building, paid on delivery.</h1>
+      <p class="section__subtitle">$200–$500 per bounty. One-week build. All currently claimed.</p>
 
-      <div style="display:flex; gap:1.5rem; margin-top:1.5rem; flex-wrap:wrap;">
-        <button class="filter-btn active-filter" data-filter="all">all</button>
-        <button class="filter-btn" data-filter="open">open</button>
-        <button class="filter-btn" data-filter="review">review</button>
-        <button class="filter-btn" data-filter="claimed">claimed</button>
+      <div style="display:flex; gap:0.5rem; margin-top:1.75rem; flex-wrap:wrap;">
+        <button class="filter-btn active-filter" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="open">Open</button>
+        <button class="filter-btn" data-filter="review">Review</button>
+        <button class="filter-btn" data-filter="claimed">Claimed</button>
       </div>
     </div>
   </section>
 
   <!-- Bounties -->
-  <section class="section">
+  <section class="section" style="padding-top: 0;">
     <div class="container">
       <div class="bounty-grid">
-
-        <!-- Open Bounties -->
 
         <!-- Starter Kit -->
         <div class="bounty-card" data-status="claimed" data-bounty="starter-kit">
@@ -73,7 +72,7 @@
           </div>
           <div class="bounty-card__actions">
             <div class="bounty-card__status bounty-card__status--claimed">Claimed</div>
-            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;">Claimed</button>
+            <button class="btn--claim" disabled>Claimed</button>
           </div>
           <div class="bounty-card__detail" id="detail-starter-kit">
             <h4>Acceptance Criteria</h4>
@@ -95,7 +94,7 @@
               <h3 class="bounty-card__title">Yale Spaces &amp; Room Availability API</h3>
               <span class="bounty-card__amount">$500</span>
             </div>
-            <p class="bounty-card__desc">Build an API that surfaces room availability and bookings across Yale's reservable spaces (libraries, study rooms, residential college spaces. Right now students check three different systems. A unified data layer for better booking tools.</p>
+            <p class="bounty-card__desc">Build an API that surfaces room availability and bookings across Yale's reservable spaces (libraries, study rooms, residential college spaces). Right now students check three different systems. A unified data layer for better booking tools.</p>
             <div class="bounty-card__tags">
               <span class="bounty-card__tag">API</span>
               <span class="bounty-card__tag">Room Booking</span>
@@ -104,7 +103,7 @@
           </div>
           <div class="bounty-card__actions">
             <div class="bounty-card__status bounty-card__status--claimed">Claimed</div>
-            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;">Claimed</button>
+            <button class="btn--claim" disabled>Claimed</button>
           </div>
           <div class="bounty-card__detail" id="detail-spaces-api">
             <h4>Acceptance Criteria</h4>
@@ -116,8 +115,6 @@
             </ul>
           </div>
         </div>
-
-        <!-- Under Review Bounties -->
 
         <!-- Yale Dining API -->
         <div class="bounty-card" data-status="claimed" data-bounty="dining-api">
@@ -135,7 +132,7 @@
           </div>
           <div class="bounty-card__actions">
             <div class="bounty-card__status bounty-card__status--claimed">Claimed</div>
-            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;">Claimed</button>
+            <button class="btn--claim" disabled>Claimed</button>
           </div>
           <div class="bounty-card__detail" id="detail-dining-api">
             <h4>Acceptance Criteria</h4>
@@ -172,7 +169,7 @@
           </div>
           <div class="bounty-card__actions">
             <div class="bounty-card__status bounty-card__status--claimed">Claimed</div>
-            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;">Claimed</button>
+            <button class="btn--claim" disabled>Claimed</button>
           </div>
           <div class="bounty-card__detail" id="detail-events-api">
             <h4>Acceptance Criteria</h4>
@@ -201,7 +198,7 @@
           </div>
           <div class="bounty-card__actions">
             <div class="bounty-card__status bounty-card__status--claimed">Claimed</div>
-            <button class="btn--claim" disabled style="opacity:0.4; cursor:not-allowed;">Claimed</button>
+            <button class="btn--claim" disabled>Claimed</button>
           </div>
           <div class="bounty-card__detail" id="detail-map-api">
             <h4>Acceptance Criteria</h4>
@@ -222,12 +219,16 @@
   <!-- How Bounties Work -->
   <section class="section section--bordered">
     <div class="container">
-      <h2 class="section__title">how it works</h2>
-      <ul class="eligibility-list" style="margin-top:1rem;">
-        <li><strong>claim.</strong> one per bounty.</li>
-        <li><strong>build.</strong> 2 weeks against the spec.</li>
-        <li><strong>ship.</strong> repo + short demo video.</li>
-        <li><strong>paid.</strong> if it meets the spec.</li>
+      <div class="section__header">
+        <span class="kicker">Process</span>
+      </div>
+      <h2 class="section__title">How it works</h2>
+      <ul class="eligibility-list">
+        <li><strong>Claim.</strong> Submit the form. One per bounty.</li>
+        <li><strong>Confirm.</strong> Wait for our email before starting. Do not begin work until confirmed.</li>
+        <li><strong>Build.</strong> One week from confirmation, against the spec.</li>
+        <li><strong>Ship.</strong> Repo and short demo video.</li>
+        <li><strong>Paid.</strong> If it meets the spec.</li>
       </ul>
     </div>
   </section>
@@ -237,7 +238,7 @@
     <div class="modal">
       <button class="modal__close" onclick="closeModal('claimModal')">&times;</button>
       <h3 class="modal__title">Claim a Bounty</h3>
-      <p class="modal__desc" id="claimModalDesc">Fill out the form below to claim this bounty. Once claimed, it's yours. No one else can take it. You'll have 2 weeks to build and submit.</p>
+      <p class="modal__desc" id="claimModalDesc">Fill out the form below to claim this bounty. Wait for our email confirmation before starting work — you'll have one week from confirmation to build and submit.</p>
       <form class="modal__form" onsubmit="handleClaim(event)">
         <input type="text" id="claimBountyName" placeholder="Bounty name" required readonly>
         <input type="text" placeholder="Your name" required>
@@ -250,7 +251,7 @@
   </div>
 
   <footer class="footer">
-    <div class="footer__left">2026 · ycc tech division</div>
+    <div class="footer__left">2026 — ycc/tech</div>
     <div class="footer__right">
       <a href="index.html">home</a>
       <a href="mailto:ycc@yale.edu">ycc@yale.edu</a>

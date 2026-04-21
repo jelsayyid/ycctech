@@ -6,7 +6,7 @@
   <title>Developer Prize | YCC Tech Division</title>
   <meta name="description" content="$1,000 in prizes for the best new tools built to serve the Yale community. Judged on impact, usability, and openness. Award ceremony at Tsai City, April 25.">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a0a'/><text x='50' y='62' font-size='48' fill='%23e0e0e0' text-anchor='middle' font-family='monospace' dominant-baseline='middle'>//</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230a0a0a'/><path d='M 36 76 L 64 24' stroke='%236b9fff' stroke-width='14' stroke-linecap='square'/></svg>">
 </head>
 <body>
 
@@ -38,11 +38,13 @@
   <!-- Prize Hero -->
   <section class="prize-hero">
     <div class="container">
-      <h1 class="section__title">developer prize 2026</h1>
-      <p class="prize-hero__desc">$1,000 across three tiers for the best tool built for yale. ceremony apr 25 at tsai city.</p>
+      <div class="hero__label">Developer Prize · Spring 2026</div>
+      <div class="prize-hero__amount">$1,000</div>
+      <h1 class="prize-hero__title">For the best tool built for Yale.</h1>
+      <p class="prize-hero__desc">Three tiers. Judged on impact, usability, and openness. Ceremony April 25 at Tsai City.</p>
       <div class="hero__actions">
-        <a href="#submit" class="btn btn--primary" id="openSubmitBtn">submit</a>
-        <a href="#criteria" class="btn btn--outline">criteria</a>
+        <a href="#submit" class="btn btn--primary" id="openSubmitBtn">Submit entry</a>
+        <a href="#criteria" class="btn btn--outline">Criteria</a>
       </div>
     </div>
   </section>
@@ -50,11 +52,14 @@
   <!-- Prize Ladder -->
   <section class="section section--bordered">
     <div class="container">
+      <div class="section__header">
+        <span class="kicker">Prize Ladder</span>
+      </div>
       <ul class="eligibility-list">
         <li><strong class="text-accent">1st — $500</strong></li>
         <li><strong>2nd — $300</strong></li>
         <li><strong>3rd — $200</strong></li>
-        <li>every meaningful submission gets a gift card.</li>
+        <li>Every meaningful submission gets a gift card.</li>
       </ul>
     </div>
   </section>
@@ -62,12 +67,14 @@
   <!-- Judging Criteria -->
   <section class="section section--bordered" id="criteria">
     <div class="container">
-      <h2 class="section__title">judging criteria</h2>
-      <ul class="eligibility-list" style="margin-top:1rem;">
-        <li><strong>community impact.</strong> solves a real problem for yale students.</li>
-        <li><strong>usability.</strong> shipped, not a demo.</li>
-        <li><strong>openness.</strong> open-source, extensible.</li>
-        <li><strong>technical quality.</strong> clean, not complex for its own sake.</li>
+      <div class="section__header">
+        <span class="kicker">Judging Criteria</span>
+      </div>
+      <ul class="eligibility-list">
+        <li><strong>Community impact.</strong> Solves a real problem for Yale students.</li>
+        <li><strong>Usability.</strong> Shipped, not a demo.</li>
+        <li><strong>Openness.</strong> Open-source, extensible.</li>
+        <li><strong>Technical quality.</strong> Clean, not complex for its own sake.</li>
       </ul>
     </div>
   </section>
@@ -77,39 +84,43 @@
     <div class="container">
       <div class="about-grid">
         <div>
-          <h2 class="section__title">timeline</h2>
-          <div class="timeline" style="margin-top:1rem;">
+          <div class="section__header">
+            <span class="kicker">Timeline</span>
+          </div>
+          <div class="timeline">
             <div class="timeline__item active">
               <div class="timeline__dot"></div>
-              <div class="timeline__date">apr 4</div>
-              <div class="timeline__title">launch</div>
+              <div class="timeline__date">Apr 4</div>
+              <div class="timeline__title">Launch</div>
             </div>
             <div class="timeline__item">
               <div class="timeline__dot"></div>
-              <div class="timeline__date">apr 18</div>
-              <div class="timeline__title">submission deadline</div>
+              <div class="timeline__date">Apr 18</div>
+              <div class="timeline__title">Submission deadline</div>
             </div>
             <div class="timeline__item">
               <div class="timeline__dot"></div>
-              <div class="timeline__date">apr 19–24</div>
-              <div class="timeline__title">judging</div>
+              <div class="timeline__date">Apr 19–24</div>
+              <div class="timeline__title">Judging</div>
             </div>
             <div class="timeline__item">
               <div class="timeline__dot"></div>
-              <div class="timeline__date">apr 25</div>
-              <div class="timeline__title">ceremony · tsai city</div>
+              <div class="timeline__date">Apr 25</div>
+              <div class="timeline__title">Ceremony · Tsai City</div>
             </div>
           </div>
         </div>
         <div>
-          <h2 class="section__title">rules</h2>
-          <ul class="eligibility-list" style="margin-top:1rem;">
-            <li>new project, started after apr 4.</li>
-            <li>solo or teams up to 3 yale college students.</li>
-            <li>open-source, public github repo.</li>
-            <li>must serve the yale community directly.</li>
-            <li>2-min demo video.</li>
-            <li>short problem write-up.</li>
+          <div class="section__header">
+            <span class="kicker">Rules</span>
+          </div>
+          <ul class="eligibility-list">
+            <li>New project, started after Apr 4.</li>
+            <li>Solo or teams up to three Yale College students.</li>
+            <li>Open-source, public GitHub repo.</li>
+            <li>Must serve the Yale community directly.</li>
+            <li>Two-minute demo video.</li>
+            <li>Short problem write-up.</li>
           </ul>
         </div>
       </div>
@@ -129,13 +140,13 @@
         <input type="url" placeholder="GitHub repo URL" required>
         <input type="url" placeholder="Demo video URL (YouTube, Loom, etc.)">
         <textarea placeholder="What problem does this solve? (2-3 sentences)"></textarea>
-        <button type="submit" class="btn btn--gold" style="justify-content:center;">Submit Entry</button>
+        <button type="submit" class="btn btn--primary" style="justify-content:center;">Submit Entry</button>
       </form>
     </div>
   </div>
 
   <footer class="footer">
-    <div class="footer__left">2026 · ycc tech division</div>
+    <div class="footer__left">2026 — ycc/tech</div>
     <div class="footer__right">
       <a href="index.html">home</a>
       <a href="mailto:ycc@yale.edu">ycc@yale.edu</a>
