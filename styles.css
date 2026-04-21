@@ -122,13 +122,6 @@ em { font-style: normal; color: var(--accent); }
   font-weight: 400;
 }
 
-.nav__brand::after {
-  content: '_';
-  color: var(--accent);
-  margin-left: 2px;
-  animation: blink 1.1s step-end infinite;
-}
-
 @keyframes blink {
   0%, 50% { opacity: 1; }
   50.01%, 100% { opacity: 0; }
@@ -207,25 +200,12 @@ em { font-style: normal; color: var(--accent); }
 
 /* --- sections --- */
 .section {
-  padding: 2.5rem 0;
+  padding: 3rem 0;
 }
 
 .section--bordered {
-  border-top: 0;
-}
-
-.section--bordered::before {
-  content: '/* -- */';
-  display: block;
-  color: var(--muted);
-  font-size: 0.85rem;
-  padding: 0 2rem;
-  margin: 1.5rem 0 2rem;
-  letter-spacing: 0.15em;
-}
-
-@media (min-width: 900px) {
-  .section--bordered::before { padding-left: 6rem; }
+  border-top: 1px solid var(--border);
+  padding-top: 3rem;
 }
 
 .section__header { margin-bottom: 1.5rem; }
@@ -239,13 +219,7 @@ em { font-style: normal; color: var(--accent); }
   text-transform: none;
   font-family: inherit;
   display: block;
-  margin-bottom: 0.4rem;
-}
-
-.section__eyebrow::before,
-.label::before {
-  content: '# ';
-  color: var(--muted);
+  margin-bottom: 0.5rem;
 }
 
 .label--accent,
@@ -283,13 +257,6 @@ em { font-style: normal; color: var(--accent); }
   display: block;
 }
 
-.hero__label::before {
-  content: '# ';
-  background: none !important;
-  width: auto !important;
-  height: auto !important;
-  display: inline !important;
-}
 
 .hero__title {
   font-size: 1.5rem !important;
@@ -379,18 +346,6 @@ em { font-style: normal; color: var(--accent); }
   box-shadow: none !important;
   background: none !important;
 }
-
-.btn--primary::before,
-.btn--gold::before,
-.btn--outline::before,
-.btn--ghost::before {
-  content: '→ ';
-  color: var(--muted);
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn:hover::before { color: var(--accent); }
 
 .btn--ghost .arrow { display: none; }
 
@@ -530,8 +485,7 @@ em { font-style: normal; color: var(--accent); }
   display: inline;
 }
 
-.criteria-card__rank::before { content: '['; }
-.criteria-card__rank::after { content: '] '; }
+.criteria-card__rank { margin-right: 0.5rem; }
 
 .criteria-card__title {
   font-size: 1.05rem !important;
@@ -707,8 +661,6 @@ em { font-style: normal; color: var(--accent); }
   font-weight: 400 !important;
 }
 
-.bounty-card__tag::before { content: '#'; }
-
 .bounty-card__actions {
   display: flex !important;
   flex-direction: row !important;
@@ -726,16 +678,9 @@ em { font-style: normal; color: var(--accent); }
 }
 
 .bounty-card__status::before {
-  content: '[' !important;
-  background: none !important;
-  width: auto !important;
-  height: auto !important;
-  border-radius: 0 !important;
-  margin: 0 !important;
-  font-family: inherit;
+  content: '' !important;
+  display: none !important;
 }
-
-.bounty-card__status::after { content: ']'; }
 
 .bounty-card__status--open { color: var(--accent) !important; }
 .bounty-card__status--review { color: var(--muted) !important; }
@@ -787,8 +732,6 @@ em { font-style: normal; color: var(--accent); }
   font-weight: 400;
   font-family: inherit;
 }
-
-.bounty-card__detail h4::before { content: '// '; }
 
 .bounty-card__detail ul {
   list-style: none;
@@ -860,9 +803,6 @@ em { font-style: normal; color: var(--accent); }
   font-weight: 400;
   font-family: inherit;
 }
-
-.spec-block__title::before { content: '/* '; }
-.spec-block__title::after { content: ' */'; }
 
 .spec-block__content {
   color: var(--muted);
@@ -1089,8 +1029,6 @@ em { font-style: normal; color: var(--accent); }
   font-weight: 400;
 }
 
-.about-grid__sidebar-title::before { content: '# '; }
-
 .about-grid__sidebar-value {
   font-size: 0.95rem;
   color: var(--fg);
@@ -1218,8 +1156,6 @@ em { font-style: normal; color: var(--accent); }
   font-weight: 400;
 }
 
-.event-card__partner::before { content: '#'; }
-
 .event-card__expect h3,
 .event-card__perks h3 {
   font-size: 0.85rem !important;
@@ -1229,8 +1165,12 @@ em { font-style: normal; color: var(--accent); }
   font-weight: 400 !important;
 }
 
-.event-card__expect h3::before,
-.event-card__perks h3::before { content: '// '; }
+.event-card__expect h3,
+.event-card__perks h3 {
+  text-transform: none;
+  color: var(--fg) !important;
+  font-weight: 700 !important;
+}
 
 .event-card__expect,
 .event-card__perks { margin-bottom: 1rem; }
@@ -1304,11 +1244,7 @@ em { font-style: normal; color: var(--accent); }
 }
 
 .event-card__perk-icon {
-  font-size: 0.85rem !important;
-  font-weight: 400 !important;
-  width: auto !important;
-  color: var(--muted) !important;
-  text-align: left !important;
+  display: none !important;
 }
 
 .event-card__perk strong {
