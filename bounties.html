@@ -12,14 +12,14 @@
 
   <!-- Nav -->
   <nav class="nav">
-    <a href="index.html" class="nav__brand">YCC <span>Tech</span></a>
+    <a href="index.html" class="nav__brand">ycc/<span>tech</span></a>
     <ul class="nav__links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="prize.html">Developer Prize</a></li>
-      <li><a href="bounties.html" class="active">Bounty Board</a></li>
-      <li><a href="speakers.html">Speakers</a></li>
-      <li><a href="dreamboard.html">Dream Board</a></li>
-      <li><a href="events.html">Events</a></li>
+      <li><a href="index.html">home</a></li>
+      <li><a href="bounties.html" class="active">bounties</a></li>
+      <li><a href="prize.html">prize</a></li>
+      <li><a href="speakers.html">speakers</a></li>
+      <li><a href="dreamboard.html">dreamboard</a></li>
+      <li><a href="events.html">events</a></li>
     </ul>
     <div class="nav__hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -27,45 +27,35 @@
   </nav>
 
   <div class="nav__mobile-overlay" id="mobileNav">
-    <a href="index.html" onclick="closeMobileNav()">Home</a>
-    <a href="prize.html" onclick="closeMobileNav()">Developer Prize</a>
-    <a href="bounties.html" onclick="closeMobileNav()">Bounty Board</a>
-    <a href="speakers.html" onclick="closeMobileNav()">Speakers</a>
-    <a href="dreamboard.html" onclick="closeMobileNav()">Dream Board</a>
-    <a href="events.html" onclick="closeMobileNav()">Events</a>
+    <a href="index.html" onclick="closeMobileNav()">home</a>
+    <a href="bounties.html" onclick="closeMobileNav()">bounties</a>
+    <a href="prize.html" onclick="closeMobileNav()">prize</a>
+    <a href="speakers.html" onclick="closeMobileNav()">speakers</a>
+    <a href="dreamboard.html" onclick="closeMobileNav()">dreamboard</a>
+    <a href="events.html" onclick="closeMobileNav()">events</a>
   </div>
 
   <!-- Header -->
-  <section class="section" style="padding-top:120px; padding-bottom:40px;">
+  <section class="section">
     <div class="container">
-      <div class="label label--accent reveal" style="margin-bottom:1.5rem;">
-        <span style="display:inline-flex;align-items:center;gap:0.75rem;">
-          <span style="width:32px;height:1px;background:var(--accent);display:block;"></span>
-          YCC Bounty Board
-        </span>
-      </div>
-      <h1 class="section__title reveal" style="font-size:clamp(2.4rem, 5vw, 4.2rem); max-width:25ch;">These are things every Yale developer wishes existed</h1>
-      <p class="section__subtitle reveal">These are the projects we're considering funding as bounties. We're currently reviewing which ones to green-light. Once a bounty goes live, you'll be able to claim it, build it, and get paid.</p>
-
-      <!-- Status banner -->
-      <div class="reveal" style="margin-top:2rem; padding:1.25rem 1.5rem; border:1px solid var(--border); border-left:3px solid var(--gold); background:var(--bg-raised);">
-        <p style="font-size:0.85rem; color:var(--text-secondary); margin:0; line-height:1.6;"><strong style="color:var(--gold);">Claiming opens soon.</strong> We're sitting down with the team to finalize which bounties are worth funding and at what amounts. Check back for updates, or keep an eye on your inbox.</p>
-      </div>
+      <div class="label">bounty board</div>
+      <h1 class="section__title">things every yale developer wishes existed.</h1>
+      <p class="section__subtitle">infrastructure bounties, $200–$500 each. claim one, build it in 2 weeks, get paid. all claimed as of now — check back for the next round.</p>
 
       <!-- Filter bar -->
-      <div class="reveal" style="display:flex; gap:0.75rem; margin-top:2.5rem; flex-wrap:wrap;">
-        <button class="btn btn--outline filter-btn active-filter" data-filter="all" style="padding:0.5rem 1.2rem; font-size:0.7rem;">All Bounties</button>
-        <button class="btn btn--outline filter-btn" data-filter="review" style="padding:0.5rem 1.2rem; font-size:0.7rem;">Under Review</button>
-        <button class="btn btn--outline filter-btn" data-filter="open" style="padding:0.5rem 1.2rem; font-size:0.7rem;">Open</button>
-        <button class="btn btn--outline filter-btn" data-filter="claimed" style="padding:0.5rem 1.2rem; font-size:0.7rem;">Claimed</button>
+      <div style="display:flex; gap:1.5rem; margin-top:2rem; flex-wrap:wrap;">
+        <button class="filter-btn active-filter" data-filter="all">all</button>
+        <button class="filter-btn" data-filter="open">open</button>
+        <button class="filter-btn" data-filter="review">review</button>
+        <button class="filter-btn" data-filter="claimed">claimed</button>
       </div>
     </div>
   </section>
 
   <!-- Bounties -->
-  <section class="section" style="padding-top:0;">
+  <section class="section">
     <div class="container">
-      <div class="bounty-grid reveal-stagger">
+      <div class="bounty-grid">
 
         <!-- Open Bounties -->
 
@@ -233,31 +223,26 @@
 
   <!-- How Bounties Work -->
   <section class="section section--bordered">
-    <div class="container container--narrow">
-      <div class="section__header reveal" style="text-align:center;">
-        <div class="section__eyebrow label">How It Works</div>
-        <h2 class="section__title" style="margin:0 auto;">How bounties will work</h2>
+    <div class="container">
+      <div class="section__header">
+        <div class="section__eyebrow">how it works</div>
+        <h2 class="section__title">the process</h2>
       </div>
-      <div class="about-grid reveal" style="grid-template-columns:1fr; max-width:640px; margin:3rem auto 0;">
-        <div>
-          <ul class="eligibility-list">
-            <li><strong>Claim it:</strong> Hit the claim button so nobody duplicates your work. One claim per bounty.</li>
-            <li><strong>Build it:</strong> You have 2 weeks. Check the spec for acceptance criteria.</li>
-            <li><strong>Ship it:</strong> Submit your GitHub repo + a short demo video showing it works.</li>
-            <li><strong>Get paid:</strong> We review against the spec. If it meets criteria, you get paid. Simple.</li>
-          </ul>
-        </div>
-      </div>
+      <ul class="eligibility-list">
+        <li><strong>claim:</strong> hit claim so nobody duplicates. one claim per bounty.</li>
+        <li><strong>build:</strong> 2 weeks. spec has acceptance criteria.</li>
+        <li><strong>ship:</strong> submit repo + short demo video.</li>
+        <li><strong>paid:</strong> we review against the spec. meets criteria, you get paid.</li>
+      </ul>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta-banner">
-    <div class="cta-banner__bg"></div>
-    <h2 class="cta-banner__title reveal">$1,350 in bounties. Under review.</h2>
-    <p class="cta-banner__desc reveal">We're finalizing which bounties to fund. Once they go live, pick the one that matches your skills and start building.</p>
-    <div class="reveal">
-      <a href="#" class="btn btn--primary" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Back to Top</a>
+    <h2 class="cta-banner__title">all claimed. next round soon.</h2>
+    <p class="cta-banner__desc">$1,350 in bounties went fast. we'll post the next batch once the current round ships.</p>
+    <div>
+      <a href="mailto:ycc@yale.edu" class="btn btn--primary">get on the list</a>
     </div>
   </section>
 
@@ -279,11 +264,11 @@
   </div>
 
   <footer class="footer">
-    <div class="footer__left">© 2026 YCC Tech Division | Yale College Council</div>
+    <div class="footer__left">// 2026 ycc tech division</div>
     <div class="footer__right">
-      <a href="index.html">Home</a>
-      <a href="prize.html">Developer Prize</a>
-      <a href="mailto:ycc@yale.edu">Contact</a>
+      <a href="index.html">home</a>
+      <a href="prize.html">prize</a>
+      <a href="mailto:ycc@yale.edu">contact</a>
     </div>
   </footer>
 
