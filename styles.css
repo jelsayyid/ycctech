@@ -1315,6 +1315,41 @@ button {
 
 .input-error { border-color: #ff7a7a !important; }
 
+/* --- TEAM --- */
+.team {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.team__row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1.5rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+
+.team__role {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.team__names {
+  font-size: 0.925rem;
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+@media (max-width: 560px) {
+  .team__row { grid-template-columns: 1fr; gap: 0.35rem; padding: 1rem 0; }
+}
+
 /* --- SCROLLBAR --- */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
