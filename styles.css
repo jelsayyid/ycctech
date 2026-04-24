@@ -654,23 +654,18 @@ button {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  border-top: 1px solid var(--border);
 }
 
 .bounty-card__detail ul li {
   font-size: 0.925rem;
   color: var(--fg-dim);
-  padding-left: 1.2rem;
-  position: relative;
-  line-height: 1.6;
+  padding: 0.55rem 0;
+  line-height: 1.55;
+  border-bottom: 1px solid var(--border);
 }
 
-.bounty-card__detail ul li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--muted);
-}
+.bounty-card__detail ul li:last-child { border-bottom: none; }
 
 /* filter buttons */
 .filter-btn {
@@ -792,23 +787,16 @@ button {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
   margin-top: 1rem;
+  border-top: 1px solid var(--border);
 }
 
 .eligibility-list li {
   font-size: 0.95rem;
   color: var(--fg-dim);
-  padding-left: 1.35rem;
-  position: relative;
-  line-height: 1.6;
-}
-
-.eligibility-list li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--muted);
+  padding: 0.8rem 0;
+  line-height: 1.55;
+  border-bottom: 1px solid var(--border);
 }
 
 .eligibility-list li strong {
@@ -933,23 +921,18 @@ button {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  border-top: 1px solid var(--border);
 }
 
 .event-card__expect ul li {
   font-size: 0.95rem;
   color: var(--fg-dim);
-  padding-left: 1.35rem;
-  position: relative;
-  line-height: 1.6;
+  padding: 0.6rem 0;
+  line-height: 1.55;
+  border-bottom: 1px solid var(--border);
 }
 
-.event-card__expect ul li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--muted);
-}
+.event-card__expect ul li:last-child { border-bottom: none; }
 
 .event-card__note {
   color: var(--fg-dim);

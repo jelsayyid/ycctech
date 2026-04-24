@@ -160,7 +160,7 @@ function handleClaim(e) {
       <div style="text-align:center; padding:2rem 0;">
         <div style="font-size:1.5rem; margin-bottom:1rem; font-family:var(--font-mono); color:var(--accent);">Done</div>
         <h3 class="modal__title" style="text-align:center;">Bounty Claimed</h3>
-        <p class="modal__desc" style="text-align:center;">Claim received. Watch your email — we'll send confirmation and the full spec before you start building.</p>
+        <p class="modal__desc" style="text-align:center;">Claim received. Watch your email for confirmation and the full spec before you start building.</p>
         <button class="btn btn--outline" onclick="closeModal('claimModal')" style="margin:0 auto;">Close</button>
       </div>
     `;
@@ -601,7 +601,7 @@ function initMatrixRain() {
 
     let running = true;
     let last = 0;
-    const frameMs = 80; // ~12fps — readable trails
+    const frameMs = 80; // ~12fps, readable trails
 
     const draw = (t) => {
       if (!running) return;
