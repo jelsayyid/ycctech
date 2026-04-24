@@ -410,9 +410,398 @@ function initTypewriter() {
   });
 }
 
+// ============================================
+// HACKER-FLARE
+// ============================================
+
+const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// --- Brand blinking caret ---
+function initBrandCursor() {
+  document.querySelectorAll('.nav__brand').forEach((brand) => {
+    if (brand.querySelector('.brand-cursor')) return;
+    const cursor = document.createElement('span');
+    cursor.className = 'brand-cursor';
+    cursor.textContent = '_';
+    cursor.setAttribute('aria-hidden', 'true');
+    brand.appendChild(cursor);
+  });
+}
+
+// --- Keyboard shortcut hints + global keys ---
+const NAV_KEYS = {
+  h: { label: 'home',       href: 'index.html' },
+  b: { label: 'bounties',   href: 'bounties.html' },
+  p: { label: 'prize',      href: 'prize.html' },
+  s: { label: 'speakers',   href: 'speakers.html' },
+  d: { label: 'dreamboard', href: 'dreamboard.html' },
+  e: { label: 'events',     href: 'events.html' },
+};
+
+function initKeyboardHints() {
+  const entries = Object.entries(NAV_KEYS);
+  document.querySelectorAll('.nav__links > li > a').forEach((a) => {
+    const text = a.textContent.trim().toLowerCase();
+    const found = entries.find(([, v]) => v.label === text);
+    if (!found || a.querySelector('.kbd-hint')) return;
+    const hint = document.createElement('span');
+    hint.className = 'kbd-hint';
+    hint.textContent = found[0];
+    a.prepend(hint);
+  });
+}
+
+function initKeyboardShortcuts() {
+  document.addEventListener('keydown', (e) => {
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const key = e.key.toLowerCase();
+    const target = NAV_KEYS[key];
+    if (!target) return;
+    const here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    if (here === target.href) return;
+    location.href = target.href;
+  });
+}
+
+// --- Command palette ---
+const CMDK_ITEMS = [
+  { icon: '›', label: 'home',        desc: 'overview',             go: 'index.html' },
+  { icon: '›', label: 'bounties',    desc: '$200–$500 · ship it',  go: 'bounties.html' },
+  { icon: '›', label: 'prize',       desc: '$1,000 · Apr 26',      go: 'prize.html' },
+  { icon: '›', label: 'speakers',    desc: 'fireside chats',       go: 'speakers.html' },
+  { icon: '›', label: 'dreamboard',  desc: 'hardware grants',      go: 'dreamboard.html' },
+  { icon: '›', label: 'events',      desc: 'upcoming',             go: 'events.html' },
+  { icon: '$', label: 'submit prize entry', desc: 'project submission',
+    run: () => { if (location.pathname.endsWith('prize.html')) openModal('submitModal'); else { location.href = 'prize.html#submit'; } } },
+  { icon: '@', label: 'email ycc',   desc: 'ycc@yale.edu',         run: () => (location.href = 'mailto:ycc@yale.edu') },
+];
+
+function initCmdk() {
+  const overlay = document.createElement('div');
+  overlay.className = 'cmdk';
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.innerHTML = `
+    <div class="cmdk__box" role="dialog" aria-label="Command palette">
+      <div class="cmdk__prompt">
+        <span class="cmdk__prefix">$</span>
+        <input type="text" class="cmdk__input" placeholder="jump to… (try: bounties, prize)" autocomplete="off" spellcheck="false" aria-label="Command input">
+      </div>
+      <div class="cmdk__results"></div>
+      <div class="cmdk__footer">
+        <span><kbd>↑↓</kbd>select</span>
+        <span><kbd>↵</kbd>open</span>
+        <span><kbd>esc</kbd>close</span>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  const input = overlay.querySelector('.cmdk__input');
+  const results = overlay.querySelector('.cmdk__results');
+  let idx = 0;
+  let filtered = CMDK_ITEMS.slice();
+
+  const render = () => {
+    if (!filtered.length) {
+      results.innerHTML = `<div class="cmdk__empty">no matches. try: bounties, prize, speakers…</div>`;
+      return;
+    }
+    results.innerHTML = filtered.map((item, i) => `
+      <div class="cmdk__item ${i === idx ? 'selected' : ''}" data-idx="${i}">
+        <div class="cmdk__item-left">
+          <span class="cmdk__item-icon">${item.icon}</span>
+          <span>${item.label}</span>
+        </div>
+        <span class="cmdk__item-desc">${item.desc}</span>
+      </div>`).join('');
+  };
+
+  const filter = (q) => {
+    q = q.trim().toLowerCase();
+    filtered = q
+      ? CMDK_ITEMS.filter((it) => it.label.toLowerCase().includes(q) || it.desc.toLowerCase().includes(q))
+      : CMDK_ITEMS.slice();
+    idx = 0;
+    render();
+  };
+
+  const run = (item) => {
+    if (!item) return;
+    close();
+    if (item.go) location.href = item.go;
+    else if (item.run) item.run();
+  };
+
+  const open = () => {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    input.value = '';
+    filter('');
+    setTimeout(() => input.focus(), 10);
+  };
+
+  const close = () => {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  input.addEventListener('input', (e) => filter(e.target.value));
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); idx = Math.min(filtered.length - 1, idx + 1); render(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); idx = Math.max(0, idx - 1); render(); }
+    else if (e.key === 'Enter') { e.preventDefault(); run(filtered[idx]); }
+    else if (e.key === 'Escape') { close(); }
+  });
+
+  results.addEventListener('click', (e) => {
+    const item = e.target.closest('.cmdk__item');
+    if (!item) return;
+    run(filtered[parseInt(item.dataset.idx, 10)]);
+  });
+
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      overlay.classList.contains('open') ? close() : open();
+    }
+  });
+}
+
+// --- Matrix rain ---
+function initMatrixRain() {
+  if (REDUCED_MOTION) return;
+  const hosts = document.querySelectorAll('.hero, .prize-hero, .events-hero');
+  hosts.forEach((host) => {
+    if (host.querySelector('.matrix-rain')) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.className = 'matrix-rain';
+    canvas.setAttribute('aria-hidden', 'true');
+    host.prepend(canvas);
+
+    const ctx = canvas.getContext('2d');
+    const glyphs = '01{}[]()<>/\\=+-*;:._|&@#$?!ycctechabcdef0123456789';
+    const fontSize = 14;
+    let drops = [];
+    let w = 0, h = 0;
+
+    const resize = () => {
+      w = canvas.width = host.offsetWidth;
+      h = canvas.height = host.offsetHeight;
+      const cols = Math.max(1, Math.floor(w / fontSize));
+      drops = new Array(cols).fill(0).map(() => Math.random() * (h / fontSize));
+    };
+    resize();
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(host);
+
+    let running = true;
+    let last = 0;
+    const frameMs = 80; // ~12fps — readable trails
+
+    const draw = (t) => {
+      if (!running) return;
+      if (t - last < frameMs) { requestAnimationFrame(draw); return; }
+      last = t;
+
+      ctx.fillStyle = 'rgba(10, 10, 10, 0.16)';
+      ctx.fillRect(0, 0, w, h);
+      ctx.font = `${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const ch = glyphs[(Math.random() * glyphs.length) | 0];
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+
+        ctx.fillStyle = 'rgba(107, 159, 255, 0.75)';
+        ctx.fillText(ch, x, y);
+        ctx.fillStyle = '#c8dcff';
+        ctx.fillText(ch, x, y);
+
+        if (y > h && Math.random() > 0.975) drops[i] = 0;
+        drops[i] += 1;
+      }
+      requestAnimationFrame(draw);
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting && !running) { running = true; requestAnimationFrame(draw); }
+        else if (!en.isIntersecting) { running = false; }
+      });
+    });
+    io.observe(host);
+
+    requestAnimationFrame(draw);
+  });
+}
+
+// --- Stat count-up ---
+function initCountUp() {
+  if (REDUCED_MOTION) return;
+  const nodes = document.querySelectorAll('.hero__stat-value, .prize-hero__amount');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      const el = en.target;
+      io.unobserve(el);
+      const orig = el.textContent.trim();
+      const m = orig.match(/^(\D*)(\d[\d,]*)(.*)$/);
+      if (!m) return;
+      const prefix = m[1], suffix = m[3];
+      const num = parseInt(m[2].replace(/,/g, ''), 10);
+      if (!Number.isFinite(num) || num <= 0) return;
+
+      const dur = 1200;
+      const start = performance.now();
+      const ease = (t) => 1 - Math.pow(1 - t, 3);
+
+      const step = (now) => {
+        const p = Math.min(1, (now - start) / dur);
+        const v = Math.floor(ease(p) * num);
+        el.textContent = prefix + v.toLocaleString() + suffix;
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = orig;
+      };
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.4 });
+
+  nodes.forEach((n) => io.observe(n));
+}
+
+// --- Home system status bar ---
+function initStatusBar() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  const container = hero.querySelector('.container');
+  if (!container || container.querySelector('.status-bar')) return;
+
+  const bar = document.createElement('div');
+  bar.className = 'status-bar';
+  bar.innerHTML = `
+    <span><span class="status-bar__dot"></span><strong>SYSTEM ONLINE</strong></span>
+    <span class="status-bar__sep">│</span>
+    <span>BUDGET <span class="status-bar__key">$5,000</span></span>
+    <span class="status-bar__sep">│</span>
+    <span>BOUNTIES <span class="status-bar__key">6</span></span>
+    <span class="status-bar__sep">│</span>
+    <span>[UTC] <span class="status-bar__key" id="utcClock">--:--:--</span></span>`;
+
+  const label = container.querySelector('.hero__label');
+  if (label) container.insertBefore(bar, label);
+  else container.prepend(bar);
+
+  const clock = bar.querySelector('#utcClock');
+  const tick = () => {
+    const d = new Date();
+    const h = String(d.getUTCHours()).padStart(2, '0');
+    const m = String(d.getUTCMinutes()).padStart(2, '0');
+    const s = String(d.getUTCSeconds()).padStart(2, '0');
+    clock.textContent = `${h}:${m}:${s}`;
+  };
+  tick();
+  setInterval(tick, 1000);
+}
+
+// --- Live activity ticker (home only) ---
+function initTicker() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  if (document.querySelector('.ticker')) return;
+
+  const items = [
+    { t: '04:22:07', tag: 'BOUNTY', msg: 'claim received:',  hl: 'hello-yale-starter', suf: '→ $200' },
+    { t: '04:18:44', tag: 'PRIZE',  msg: 'submission accepted:', hl: 'YaleMaps', suf: '' },
+    { t: '04:16:12', tag: 'DREAM',  msg: 'grant approved:',  hl: 'esp32-cam rig',      suf: '→ $85' },
+    { t: '04:14:30', tag: 'BOUNTY', msg: 'shipped:',         hl: 'dining-api',         suf: '→ merged to main' },
+    { t: '04:08:55', tag: 'SPEAK',  msg: 'nominated:',       hl: 'yale alum @ anthropic', suf: '' },
+    { t: '04:04:01', tag: 'SYSTEM', msg: 'spring cohort initialized · 6 bounties deployed', hl: '', suf: '' },
+    { t: '03:57:18', tag: 'BOUNTY', msg: 'claim received:',  hl: 'events-aggregator',  suf: '→ $200' },
+    { t: '03:50:02', tag: 'PRIZE',  msg: 'ceremony scheduled:', hl: 'Sun Apr 26 · 6pm · Tsai City', suf: '' },
+    { t: '03:41:37', tag: 'DREAM',  msg: 'grant approved:',  hl: 'raspi cluster',      suf: '→ $120' },
+    { t: '03:33:09', tag: 'BOUNTY', msg: 'spec published:',  hl: 'spaces-api',         suf: '→ $500' },
+    { t: '03:21:44', tag: 'SPEAK',  msg: 'confirmed:',       hl: 'fireside · Stanford TA → openai', suf: '' },
+    { t: '03:09:22', tag: 'BOUNTY', msg: 'shipped:',         hl: 'map-api',            suf: '→ GeoJSON live' },
+  ];
+
+  const renderItem = (i) => `
+    <span class="ticker__item">
+      <span class="ticker__time">${i.t}</span>
+      <span class="ticker__tag">[${i.tag}]</span>
+      <span>${i.msg}${i.hl ? ' <span class="ticker__hl">' + i.hl + '</span>' : ''}${i.suf ? ' ' + i.suf : ''}</span>
+    </span>`;
+
+  const doubled = items.concat(items);
+
+  const ticker = document.createElement('div');
+  ticker.className = 'ticker';
+  ticker.setAttribute('aria-label', 'Live activity feed');
+  ticker.innerHTML = `
+    <div class="ticker__label">● LIVE FEED</div>
+    <div class="ticker__viewport">
+      <div class="ticker__track">${doubled.map(renderItem).join('')}</div>
+    </div>`;
+
+  hero.parentNode.insertBefore(ticker, hero.nextSibling);
+}
+
+// --- Konami code easter egg ---
+function initKonami() {
+  const seq = ['arrowup','arrowup','arrowdown','arrowdown','arrowleft','arrowright','arrowleft','arrowright','b','a'];
+  let pos = 0;
+  // Capture phase so we run before the nav-shortcut handler and can swallow b/a mid-sequence.
+  document.addEventListener('keydown', (e) => {
+    const key = e.key.toLowerCase();
+    if (key === seq[pos]) {
+      pos++;
+      if (key === 'b' || key === 'a') e.stopImmediatePropagation();
+      if (pos === seq.length) { pos = 0; activateHackerMode(); }
+    } else {
+      pos = (key === seq[0]) ? 1 : 0;
+    }
+  }, true);
+}
+
+function activateHackerMode() {
+  if (document.body.classList.contains('hacker-mode')) return;
+  document.body.classList.add('hacker-mode');
+
+  const flash = document.createElement('div');
+  flash.className = 'konami-flash';
+  flash.innerHTML = `<pre>╔══════════════════════════════════╗
+║        ACCESS  GRANTED           ║
+║      hacker_mode: ENGAGED        ║
+║   ⌘K · [b] [p] [s] [d] [e] [h]   ║
+╚══════════════════════════════════╝</pre>`;
+  document.body.appendChild(flash);
+  requestAnimationFrame(() => flash.classList.add('show'));
+  setTimeout(() => flash.classList.remove('show'), 1700);
+  setTimeout(() => flash.remove(), 2100);
+
+  // Quiet console easter egg for devs peeking
+  try {
+    console.log('%c> ycc/tech · hacker_mode engaged', 'color:#6b9fff; font-family: ui-monospace, monospace; font-weight: 500;');
+    console.log('%c  keys: h b p s d e · palette: ⌘K', 'color:#737373; font-family: ui-monospace, monospace;');
+  } catch (_) {}
+}
+
 // --- Init ---
 document.addEventListener('DOMContentLoaded', () => {
   initTypewriter();
   initReveal();
   initFormValidation();
+  initBrandCursor();
+  initKeyboardHints();
+  initKeyboardShortcuts();
+  initCmdk();
+  initMatrixRain();
+  initCountUp();
+  initStatusBar();
+  initTicker();
+  initKonami();
 });
