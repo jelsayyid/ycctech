@@ -1191,13 +1191,19 @@ button {
 .footer {
   padding: 2rem var(--gutter);
   border-top: 1px solid var(--border);
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer__row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  max-width: var(--container);
-  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
@@ -1222,6 +1228,14 @@ button {
 }
 
 .footer__right a:hover { color: var(--fg); }
+
+.footer__note {
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  max-width: 72ch;
+}
 
 /* --- MODAL --- */
 .modal-overlay {
