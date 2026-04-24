@@ -1448,90 +1448,6 @@ body.hacker-mode .matrix-rain { opacity: 0.45; }
   vertical-align: middle;
 }
 
-/* --- Activity ticker --- */
-.ticker {
-  display: flex;
-  align-items: stretch;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--bg-elev);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--fg-dim);
-  overflow: hidden;
-}
-
-.ticker__label {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  padding: 0.65rem 0.95rem;
-  background: var(--bg-soft);
-  border-right: 1px solid var(--border);
-  font-size: 0.66rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 500;
-}
-
-.ticker__label::before {
-  content: '';
-  display: inline-block;
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
-  margin-right: 0.5rem;
-  animation: pulse-dot 1.4s ease-in-out infinite;
-}
-
-.ticker__viewport {
-  flex: 1;
-  overflow: hidden;
-  position: relative;
-  padding: 0.55rem 0;
-}
-
-.ticker__viewport::before,
-.ticker__viewport::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0; width: 40px;
-  z-index: 2; pointer-events: none;
-}
-
-.ticker__viewport::before { left: 0; background: linear-gradient(to right, var(--bg-elev), transparent); }
-.ticker__viewport::after { right: 0; background: linear-gradient(to left, var(--bg-elev), transparent); }
-
-.ticker__track {
-  display: flex;
-  gap: 2.5rem;
-  width: max-content;
-  animation: ticker-scroll 60s linear infinite;
-  will-change: transform;
-  padding-left: 2.5rem;
-}
-
-body.hacker-mode .ticker__track { animation-duration: 24s; }
-
-.ticker:hover .ticker__track { animation-play-state: paused; }
-
-@keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-.ticker__item {
-  white-space: nowrap;
-  display: inline-flex;
-  gap: 0.5rem;
-  align-items: baseline;
-}
-
-.ticker__time { color: var(--muted); }
-.ticker__tag { color: var(--accent); font-weight: 500; }
-.ticker__hl  { color: var(--fg); font-weight: 500; }
-
 /* --- Keyboard hint badges in nav --- */
 .kbd-hint {
   display: inline-block;
@@ -1733,8 +1649,6 @@ body.hacker-mode {
   .brand-cursor,
   .hero__title::after,
   .prize-hero__title::after { animation: none; }
-  .ticker__track { animation: none; }
   body.hacker-mode::before { animation: none; }
-  .status-bar__dot,
-  .ticker__label::before { animation: none; }
+  .status-bar__dot { animation: none; }
 }
