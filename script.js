@@ -708,48 +708,6 @@ function initStatusBar() {
   setInterval(tick, 1000);
 }
 
-// --- Live activity ticker (home only) ---
-function initTicker() {
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
-  if (document.querySelector('.ticker')) return;
-
-  const items = [
-    { t: '04:22:07', tag: 'BOUNTY', msg: 'claim received:',  hl: 'hello-yale-starter', suf: '→ $200' },
-    { t: '04:18:44', tag: 'PRIZE',  msg: 'submission accepted:', hl: 'YaleMaps', suf: '' },
-    { t: '04:16:12', tag: 'DREAM',  msg: 'grant approved:',  hl: 'esp32-cam rig',      suf: '→ $85' },
-    { t: '04:14:30', tag: 'BOUNTY', msg: 'shipped:',         hl: 'dining-api',         suf: '→ merged to main' },
-    { t: '04:08:55', tag: 'SPEAK',  msg: 'nominated:',       hl: 'yale alum @ anthropic', suf: '' },
-    { t: '04:04:01', tag: 'SYSTEM', msg: 'spring cohort initialized · 6 bounties deployed', hl: '', suf: '' },
-    { t: '03:57:18', tag: 'BOUNTY', msg: 'claim received:',  hl: 'events-aggregator',  suf: '→ $200' },
-    { t: '03:50:02', tag: 'PRIZE',  msg: 'ceremony scheduled:', hl: 'Sun Apr 26 · 6pm · Tsai City', suf: '' },
-    { t: '03:41:37', tag: 'DREAM',  msg: 'grant approved:',  hl: 'raspi cluster',      suf: '→ $120' },
-    { t: '03:33:09', tag: 'BOUNTY', msg: 'spec published:',  hl: 'spaces-api',         suf: '→ $500' },
-    { t: '03:21:44', tag: 'SPEAK',  msg: 'confirmed:',       hl: 'fireside · Stanford TA → openai', suf: '' },
-    { t: '03:09:22', tag: 'BOUNTY', msg: 'shipped:',         hl: 'map-api',            suf: '→ GeoJSON live' },
-  ];
-
-  const renderItem = (i) => `
-    <span class="ticker__item">
-      <span class="ticker__time">${i.t}</span>
-      <span class="ticker__tag">[${i.tag}]</span>
-      <span>${i.msg}${i.hl ? ' <span class="ticker__hl">' + i.hl + '</span>' : ''}${i.suf ? ' ' + i.suf : ''}</span>
-    </span>`;
-
-  const doubled = items.concat(items);
-
-  const ticker = document.createElement('div');
-  ticker.className = 'ticker';
-  ticker.setAttribute('aria-label', 'Live activity feed');
-  ticker.innerHTML = `
-    <div class="ticker__label">● LIVE FEED</div>
-    <div class="ticker__viewport">
-      <div class="ticker__track">${doubled.map(renderItem).join('')}</div>
-    </div>`;
-
-  hero.parentNode.insertBefore(ticker, hero.nextSibling);
-}
-
 // --- Konami code easter egg ---
 function initKonami() {
   const seq = ['arrowup','arrowup','arrowdown','arrowdown','arrowleft','arrowright','arrowleft','arrowright','b','a'];
@@ -802,6 +760,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initMatrixRain();
   initCountUp();
   initStatusBar();
-  initTicker();
   initKonami();
 });
