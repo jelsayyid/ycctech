@@ -469,7 +469,7 @@ function initKeyboardShortcuts() {
 const CMDK_ITEMS = [
   { icon: '›', label: 'home',        desc: 'overview',             go: 'index.html' },
   { icon: '›', label: 'bounties',    desc: '$200–$500 · ship it',  go: 'bounties.html' },
-  { icon: '›', label: 'prize',       desc: '$1,000 · Apr 26',      go: 'prize.html' },
+  { icon: '›', label: 'prize',       desc: '$1,000 · Apr 30',      go: 'prize.html' },
   { icon: '›', label: 'speakers',    desc: 'fireside chats',       go: 'speakers.html' },
   { icon: '›', label: 'dreamboard',  desc: 'hardware grants',      go: 'dreamboard.html' },
   { icon: '›', label: 'events',      desc: 'upcoming',             go: 'events.html' },
