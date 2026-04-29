@@ -416,18 +416,6 @@ function initTypewriter() {
 
 const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// --- Brand blinking caret ---
-function initBrandCursor() {
-  document.querySelectorAll('.nav__brand').forEach((brand) => {
-    if (brand.querySelector('.brand-cursor')) return;
-    const cursor = document.createElement('span');
-    cursor.className = 'brand-cursor';
-    cursor.textContent = '_';
-    cursor.setAttribute('aria-hidden', 'true');
-    brand.appendChild(cursor);
-  });
-}
-
 // --- Keyboard shortcut hints + global keys ---
 const NAV_KEYS = {
   h: { label: 'home',       href: 'index.html' },
@@ -719,7 +707,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypewriter();
   initReveal();
   initFormValidation();
-  initBrandCursor();
   initKeyboardHints();
   initKeyboardShortcuts();
   initCmdk();

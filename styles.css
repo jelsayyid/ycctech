@@ -1479,16 +1479,6 @@ body::before,
   50%      { opacity: 0.25; }
 }
 
-/* --- Brand blinking caret --- */
-.brand-cursor {
-  display: inline-block;
-  width: 0.5ch;
-  margin-left: 2px;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  animation: blink 1.1s steps(1, end) infinite;
-}
-
 /* --- Hero title caret --- */
 .hero__title::after,
 .prize-hero__title::after {
@@ -1763,7 +1753,6 @@ body.hacker-mode {
 /* --- Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
   .matrix-rain { display: none !important; }
-  .brand-cursor,
   .hero__title::after,
   .prize-hero__title::after { animation: none; }
   body.hacker-mode::before { animation: none; }
