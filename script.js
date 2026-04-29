@@ -674,40 +674,6 @@ function initCountUp() {
   nodes.forEach((n) => io.observe(n));
 }
 
-// --- Home system status bar ---
-function initStatusBar() {
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
-  const container = hero.querySelector('.container');
-  if (!container || container.querySelector('.status-bar')) return;
-
-  const bar = document.createElement('div');
-  bar.className = 'status-bar';
-  bar.innerHTML = `
-    <span><span class="status-bar__dot"></span><strong>SYSTEM ONLINE</strong></span>
-    <span class="status-bar__sep">│</span>
-    <span>BUDGET <span class="status-bar__key">$5,000</span></span>
-    <span class="status-bar__sep">│</span>
-    <span>BOUNTIES <span class="status-bar__key">6</span></span>
-    <span class="status-bar__sep">│</span>
-    <span>[UTC] <span class="status-bar__key" id="utcClock">--:--:--</span></span>`;
-
-  const label = container.querySelector('.hero__label');
-  if (label) container.insertBefore(bar, label);
-  else container.prepend(bar);
-
-  const clock = bar.querySelector('#utcClock');
-  const tick = () => {
-    const d = new Date();
-    const h = String(d.getUTCHours()).padStart(2, '0');
-    const m = String(d.getUTCMinutes()).padStart(2, '0');
-    const s = String(d.getUTCSeconds()).padStart(2, '0');
-    clock.textContent = `${h}:${m}:${s}`;
-  };
-  tick();
-  setInterval(tick, 1000);
-}
-
 // --- Konami code easter egg ---
 function initKonami() {
   const seq = ['arrowup','arrowup','arrowdown','arrowdown','arrowleft','arrowright','arrowleft','arrowright','b','a'];
@@ -759,6 +725,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCmdk();
   initMatrixRain();
   initCountUp();
-  initStatusBar();
   initKonami();
 });
