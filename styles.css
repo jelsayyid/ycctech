@@ -280,6 +280,38 @@ button {
 
 .hero__label { margin-bottom: 1.5rem; }
 
+.hero__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero__visual {
+  width: 100%;
+  max-width: 320px;
+  justify-self: center;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+}
+
+.hero__visual img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 800px) {
+  .hero__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 280px);
+    gap: clamp(3rem, 8vw, 7rem);
+  }
+
+  .hero__visual {
+    max-width: none;
+    justify-self: end;
+  }
+}
+
 .hero__title,
 .prize-hero__title {
   font-family: var(--font-display);
