@@ -411,7 +411,8 @@ function initTypewriter() {
 }
 
 // ============================================
-// HACKER-FLARE
+// OPTIONAL POWER-USER FEATURES
+// These are intentionally not initialized: the public site stays calm and static.
 // ============================================
 
 const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -707,10 +708,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypewriter();
   initReveal();
   initFormValidation();
-  initKeyboardHints();
-  initKeyboardShortcuts();
-  initCmdk();
-  initMatrixRain();
-  initCountUp();
-  initKonami();
 });

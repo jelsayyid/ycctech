@@ -1,9 +1,9 @@
 /* =================================================================
    YCC Tech Division
-   Geist Sans + Geist Mono · warm black · desaturated blue
+   Space Grotesk + Newsreader + JetBrains Mono · warm black · desaturated blue
    ================================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
   --bg: #0a0a0a;
@@ -20,6 +20,7 @@
   --warn: #d4a373;
 
   --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   --container: 1080px;
@@ -281,15 +282,19 @@ button {
 
 .hero__title,
 .prize-hero__title {
-  font-size: clamp(2.1rem, 4.5vw, 3rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6.5vw, 5rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
   max-width: 26ch;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.15rem;
 }
 
-.hero__title em { color: var(--accent); }
+.hero__title em {
+  color: var(--accent);
+  font-style: italic;
+}
 
 .hero__subtitle,
 .prize-hero__desc {
@@ -298,6 +303,13 @@ button {
   max-width: 58ch;
   margin-bottom: 2.5rem;
   line-height: 1.6;
+}
+
+.hero__subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  letter-spacing: -0.018em;
+  line-height: 1.35;
 }
 
 .hero__actions {
@@ -1464,297 +1476,3 @@ body::before,
 
 .typewriter-active::after,
 .typewriter-done::after { display: none; }
-
-/* =================================================================
-   HACKER-FLARE
-   ================================================================= */
-
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.25; }
-}
-
-/* --- Hero title caret --- */
-.hero__title::after,
-.prize-hero__title::after {
-  content: '▊';
-  display: inline-block;
-  color: var(--accent);
-  margin-left: 8px;
-  font-size: 0.72em;
-  line-height: 1;
-  vertical-align: baseline;
-  animation: blink 1.1s steps(1, end) infinite;
-  font-family: var(--font-mono);
-  font-weight: 400;
-}
-
-/* --- Matrix rain --- */
-.hero,
-.prize-hero,
-.events-hero {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero > .container,
-.prize-hero > .container,
-.events-hero > .container {
-  position: relative;
-  z-index: 1;
-}
-
-.matrix-rain {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.18;
-  mix-blend-mode: screen;
-  transition: opacity 400ms ease;
-}
-
-body.hacker-mode .matrix-rain { opacity: 0.45; }
-
-/* --- Status bar (home) --- */
-.status-bar {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  margin-bottom: 1.5rem;
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.6rem 1rem;
-  align-items: center;
-  padding: 0.45rem 0.85rem;
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  background: rgba(17, 17, 17, 0.7);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.status-bar span { white-space: nowrap; }
-.status-bar strong { color: var(--fg); font-weight: 500; }
-.status-bar__key { color: var(--accent); font-weight: 500; }
-.status-bar__sep { color: var(--border-bright); }
-
-.status-bar__dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: #4ade80;
-  display: inline-block;
-  margin-right: 0.4rem;
-  box-shadow: 0 0 8px #4ade80;
-  animation: pulse-dot 1.8s ease-in-out infinite;
-  vertical-align: middle;
-}
-
-/* --- Keyboard hint badges in nav --- */
-.kbd-hint {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  color: var(--muted);
-  background: transparent;
-  border: 1px solid var(--border);
-  padding: 0.02rem 0.32rem;
-  margin-right: 0.4rem;
-  border-radius: 3px;
-  letter-spacing: 0;
-  vertical-align: 1px;
-  transition: color 120ms, border-color 120ms;
-}
-
-.nav__links a:hover .kbd-hint { color: var(--accent); border-color: var(--accent); }
-.nav__links a.active .kbd-hint { color: var(--accent); border-color: var(--border-bright); }
-
-@media (max-width: 960px) {
-  .kbd-hint { display: none; }
-}
-
-/* --- Command palette (⌘K) --- */
-.cmdk {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 250;
-  display: none;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 10vh 1.5rem 0;
-}
-
-.cmdk.open { display: flex; animation: cmdk-in 140ms ease-out; }
-
-@keyframes cmdk-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.cmdk__box {
-  width: 100%;
-  max-width: 560px;
-  background: var(--bg-elev);
-  border: 1px solid var(--border-bright);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(107, 159, 255, 0.08);
-}
-
-.cmdk__prompt {
-  display: flex;
-  align-items: center;
-  padding: 0.95rem 1rem;
-  border-bottom: 1px solid var(--border);
-  gap: 0.6rem;
-}
-
-.cmdk__prefix {
-  font-family: var(--font-mono);
-  color: var(--accent);
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
-.cmdk__input {
-  flex: 1;
-  background: none;
-  border: none;
-  color: var(--fg);
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  outline: none;
-}
-
-.cmdk__input::placeholder { color: var(--muted); }
-
-.cmdk__results {
-  max-height: 50vh;
-  overflow-y: auto;
-}
-
-.cmdk__item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.7rem 1rem;
-  cursor: pointer;
-  font-family: var(--font-mono);
-  font-size: 0.86rem;
-  color: var(--fg-dim);
-  border-bottom: 1px solid var(--border);
-  gap: 1rem;
-}
-
-.cmdk__item:last-child { border-bottom: none; }
-
-.cmdk__item.selected,
-.cmdk__item:hover {
-  background: var(--accent-dim);
-  color: var(--fg);
-}
-
-.cmdk__item-left { display: flex; align-items: center; gap: 0.65rem; min-width: 0; }
-.cmdk__item-icon { color: var(--accent); width: 1.2ch; text-align: center; }
-.cmdk__item-desc { color: var(--muted); font-size: 0.74rem; white-space: nowrap; }
-
-.cmdk__empty {
-  padding: 1.1rem 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-
-.cmdk__footer {
-  display: flex;
-  gap: 1rem;
-  padding: 0.55rem 1rem;
-  border-top: 1px solid var(--border);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-}
-
-.cmdk__footer kbd {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  padding: 0.05rem 0.38rem;
-  border-radius: 3px;
-  color: var(--fg-dim);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  margin-right: 0.25rem;
-}
-
-/* --- Konami flash --- */
-.konami-flash {
-  position: fixed;
-  inset: 0;
-  z-index: 300;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(10, 10, 10, 0.82);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 180ms ease;
-}
-
-.konami-flash.show { opacity: 1; }
-
-.konami-flash pre {
-  font-family: var(--font-mono);
-  font-size: clamp(0.68rem, 1.4vw, 0.95rem);
-  color: var(--accent);
-  line-height: 1.25;
-  text-align: center;
-  text-shadow: 0 0 18px rgba(107, 159, 255, 0.55);
-  margin: 0;
-}
-
-/* --- Hacker mode scanlines --- */
-body.hacker-mode::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 99;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    180deg,
-    rgba(107, 159, 255, 0.035) 0px,
-    rgba(107, 159, 255, 0.035) 1px,
-    transparent 1px,
-    transparent 4px
-  );
-  animation: scan 10s linear infinite;
-}
-
-@keyframes scan {
-  from { background-position: 0 0; }
-  to   { background-position: 0 200px; }
-}
-
-body.hacker-mode {
-  --accent: #9dc1ff;
-  --accent-hover: #bcd4ff;
-}
-
-/* --- Reduced motion --- */
-@media (prefers-reduced-motion: reduce) {
-  .matrix-rain { display: none !important; }
-  .hero__title::after,
-  .prize-hero__title::after { animation: none; }
-  body.hacker-mode::before { animation: none; }
-  .status-bar__dot { animation: none; }
-}
