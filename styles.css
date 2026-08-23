@@ -296,15 +296,15 @@ button {
   font-style: normal;
 }
 
-.hero__event-figure {
+.home-event-figure {
   width: 100%;
-  max-width: 802px;
+  max-width: 900px;
   margin: 3rem auto 0;
   border: 1px solid var(--border);
   background: var(--bg-elev);
 }
 
-.hero__event-photo {
+.home-event-photo {
   display: block;
   width: 100%;
   height: auto;
