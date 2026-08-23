@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YCC Innovation Prize | YCC Tech Division</title>
-  <meta name="description" content="$1,000 in prizes for the best new tools built to serve the Yale community. Judged on impact, usability, and openness. Demo day at the CEID, Friday May 1 at 4pm.">
+  <meta name="description" content="Meet the winners and distinguished finalists of the Spring 2026 YCC Innovation Prize, celebrating eight tools built to serve Yale and its community.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230a0a0a'/><path d='M 36 76 L 64 24' stroke='%236b9fff' stroke-width='14' stroke-linecap='square'/></svg>">
 </head>
@@ -35,128 +35,138 @@
     <a href="events.html" onclick="closeMobileNav()">events</a>
   </div>
 
-  <!-- Prize Hero -->
+  <!-- Prize Results Hero -->
   <section class="prize-hero">
     <div class="container">
-      <div class="hero__label">YCC Innovation Prize · Spring 2026</div>
-      <div class="prize-hero__amount">$1,000</div>
-      <h1 class="prize-hero__title">For the best tool built for Yale.</h1>
-      <p class="prize-hero__desc">Eight winners. Judged on impact, usability, and openness. Demo day Friday, May 1 at 4pm · CEID.</p>
+      <div class="hero__label">YCC Innovation Prize · Spring 2026 Results</div>
+      <h1 class="prize-hero__title">Meet the builders making Yale better.</h1>
+      <p class="prize-hero__desc">Eight projects recognized for turning real problems into useful, working software. Presented at the CEID on May 1, 2026.</p>
       <div class="hero__actions">
-        <a href="#submit" class="btn btn--primary" id="openSubmitBtn">Submit entry</a>
-        <a href="#criteria" class="btn btn--outline">Criteria</a>
+        <a href="#winners" class="btn btn--primary">View winners</a>
+        <a href="#finalists" class="btn btn--outline">Distinguished finalists</a>
       </div>
     </div>
   </section>
 
-  <!-- Prize Ladder -->
-  <section class="section section--bordered">
+  <!-- Winners -->
+  <section class="section section--bordered" id="winners">
     <div class="container">
       <div class="section__header">
-        <span class="kicker">Prize Ladder</span>
+        <span class="kicker">2026 Winners</span>
+        <h2 class="section__title">The top three projects</h2>
       </div>
-      <ul class="eligibility-list">
-        <li><strong class="text-accent">1st place · $400</strong></li>
-        <li><strong>2nd place · $250</strong></li>
-        <li><strong>3rd place · $100</strong></li>
-        <li><strong>5 runners-up · $50 each</strong></li>
-        <li>Plus catering for everyone at the demo day.</li>
-      </ul>
-    </div>
-  </section>
 
-  <!-- Judging Criteria -->
-  <section class="section section--bordered" id="criteria">
-    <div class="container">
-      <div class="section__header">
-        <span class="kicker">Judging Criteria</span>
-      </div>
-      <ul class="eligibility-list">
-        <li><strong>Community impact.</strong> Something Yalies can play with</li>
-        <li><strong>Usability.</strong> Shipped, not a demo.</li>
-        <li><strong>Openness.</strong> Open-source, extensible.</li>
-        <li><strong>Technical quality.</strong> Clean, not complex for its own sake.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Judges -->
-  <section class="section section--bordered">
-    <div class="container">
-      <div class="section__header">
-        <span class="kicker">Judges</span>
-      </div>
-      <ul class="eligibility-list">
-        <li>This year's panel includes a recent Yale alumnus from IBM, alongside YCC Tech leadership.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Timeline & Rules -->
-  <section class="section section--bordered">
-    <div class="container">
-      <div class="about-grid">
-        <div>
-          <div class="section__header">
-            <span class="kicker">Timeline</span>
-          </div>
-          <div class="timeline">
-            <div class="timeline__item active">
-              <div class="timeline__dot"></div>
-              <div class="timeline__date">Apr 4</div>
-              <div class="timeline__title">Launch</div>
-            </div>
-            <div class="timeline__item">
-              <div class="timeline__dot"></div>
-              <div class="timeline__date">May 1 · 4pm</div>
-              <div class="timeline__title">Submission deadline</div>
-            </div>
-            <div class="timeline__item">
-              <div class="timeline__dot"></div>
-              <div class="timeline__date">Apr 4 – May 1</div>
-              <div class="timeline__title">Rolling judging</div>
-            </div>
-            <div class="timeline__item">
-              <div class="timeline__dot"></div>
-              <div class="timeline__date">Fri May 1 · 4pm</div>
-              <div class="timeline__title">Demo day · CEID</div>
-            </div>
-          </div>
+      <article class="prize-winner prize-winner--first">
+        <div class="prize-winner__header">
+          <span class="prize-winner__rank">First place · $400</span>
+          <h3 class="prize-winner__name">YalieMCP</h3>
+          <p class="prize-winner__creator">Evan Boyle</p>
         </div>
-        <div>
-          <div class="section__header">
-            <span class="kicker">Rules</span>
-          </div>
-          <ul class="eligibility-list">
-            <li>Started during this academic year (since Aug 2025).</li>
-            <li>Solo or teams up to three Yale College students.</li>
-            <li>Public GitHub repo (totally optional).</li>
-            <li>Serves the Yale community.</li>
-            <li>Demo video (totally optional).</li>
-            <li>Short problem write-up.</li>
-          </ul>
+        <p class="prize-winner__description">YalieMCP unifies CourseTable, Canvas, Degree Audit, Yale’s course catalog, and major roadmaps behind one conversational interface that connects to any MCP-compatible AI client. Students can compare courses, inspect syllabi, check requirements, and plan schedules in natural language—turning a fragmented set of systems into one direct path from question to answer.</p>
+        <div class="prize-winner__links">
+          <a href="https://yalie-mcp.vercel.app/" target="_blank" rel="noopener">Visit YalieMCP <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/evanwboyle/YalieMCP" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a>
         </div>
-      </div>
+        <div class="prize-winner__media">
+          <figure class="prize-winner__demo">
+            <img src="assets/prize/yaliemcp-demo.png" alt="YalieMCP generating an updated Yale computer science course roadmap" width="1176" height="1284">
+            <figcaption>YalieMCP turns a natural-language request into an up-to-date course roadmap.</figcaption>
+          </figure>
+          <figure class="prize-winner__portrait">
+            <img src="assets/prize/evan-boyle.jpg" alt="Evan Boyle, creator of YalieMCP" width="1200" height="1200">
+            <figcaption>Evan Boyle</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="prize-winner">
+        <div class="prize-winner__header">
+          <span class="prize-winner__rank">Second place · Recognition</span>
+          <h3 class="prize-winner__name">Yideshare</h3>
+        </div>
+        <p class="prize-winner__description">Yideshare helps verified Yale community members post upcoming trips, find others traveling along similar routes, and coordinate a shared ride. By making trusted carpools easier to arrange, it lowers travel costs while reducing duplicate trips and their emissions.</p>
+        <div class="prize-winner__links">
+          <a href="https://www.yideshare.com/" target="_blank" rel="noopener">Visit Yideshare <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="prize-winner__note"><strong>Award note:</strong> Yideshare received second-place recognition. No cash prize was awarded because the project did not meet the competition’s open-source requirement.</p>
+      </article>
+
+      <article class="prize-winner">
+        <div class="prize-winner__header">
+          <span class="prize-winner__rank">Third place · $100</span>
+          <h3 class="prize-winner__name">Tabula</h3>
+          <p class="prize-winner__creator">Victor Park</p>
+        </div>
+        <p class="prize-winner__description">Tabula helps small store owners make sharper inventory decisions without a full operations team. It brings together stock levels, supplier prices, demand trends, and sales history to recommend what to restock, when to order, and why—helping owners avoid overstock, missed demand, and costly supplier choices.</p>
+        <div class="prize-winner__links">
+          <a href="https://github.com/jihwan-victor-park/Tabula" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="prize-winner__media prize-winner__media--landscape">
+          <figure class="prize-winner__demo">
+            <img src="assets/prize/tabula-demo.png" alt="Tabula inventory dashboard showing sales trends, inventory alerts, and agent activity" width="2504" height="1688">
+            <figcaption>Tabula’s store-health dashboard brings inventory signals and recommended actions together.</figcaption>
+          </figure>
+          <figure class="prize-winner__portrait">
+            <img src="assets/prize/victor-park.jpg" alt="Victor Park, creator of Tabula" width="415" height="559">
+            <figcaption>Victor Park</figcaption>
+          </figure>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- Submission Modal -->
-  <div class="modal-overlay" id="submitModal">
-    <div class="modal">
-      <button class="modal__close" onclick="closeModal('submitModal')">&times;</button>
-      <h3 class="modal__title">Submit Your Project</h3>
-      <p class="modal__desc">Fill out the form below. GitHub repo and demo video are totally optional. Submissions close Friday, May 1, 2026 at 4pm.</p>
-      <form class="modal__form" onsubmit="handleSubmit(event)">
-        <input type="text" placeholder="Your name(s)" required>
-        <input type="email" placeholder="Yale email" required>
-        <input type="text" placeholder="Project name" required>
-        <input type="url" placeholder="GitHub repo URL (totally optional)">
-        <input type="url" placeholder="Demo video URL (totally optional · YouTube, Loom, etc.)">
-        <textarea placeholder="What problem does this solve? (2-3 sentences)"></textarea>
-        <button type="submit" class="btn btn--primary" style="justify-content:center;">Submit Entry</button>
-      </form>
+  <!-- Distinguished Finalists -->
+  <section class="section section--bordered" id="finalists">
+    <div class="container">
+      <div class="section__header">
+        <span class="kicker">Distinguished Finalists</span>
+        <h2 class="section__title">Five more projects worth knowing</h2>
+      </div>
+
+      <div class="finalists-grid">
+        <article class="finalist-card">
+          <div class="finalist-card__person">Sofia Grimm</div>
+          <h3 class="finalist-card__title">Yale Research Match</h3>
+          <p class="finalist-card__description">A matching layer for undergraduate research that replaces scattered cold emails with a clearer way for students and faculty to find mutually strong fits across departments—making access to research more efficient and more equitable.</p>
+          <a class="finalist-card__link" href="https://github.com/sofiagrimm/yale-research-match" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="finalist-card">
+          <div class="finalist-card__person">Joey Tan</div>
+          <h3 class="finalist-card__title">ReViser</h3>
+          <p class="finalist-card__description">A spatial creative-writing environment for Apple Vision Pro. ReViser gives writers a virtual way to arrange, compare, and structurally revise passages—the kind of visual editing process that usually requires printing pages and spreading them across a room.</p>
+          <a class="finalist-card__link" href="https://github.com/joeyltan/Reviser" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="finalist-card finalist-card--featured">
+          <div class="finalist-card__content">
+            <div class="finalist-card__person">Noah Safar</div>
+            <h3 class="finalist-card__title">Aiden</h3>
+            <p class="finalist-card__description">A local-first AI email assistant built for the volume and complexity of student life. Aiden triages inboxes, drafts replies in the user’s voice, coordinates meetings, and surfaces the deadlines, billing alerts, and opportunities that matter.</p>
+            <a class="finalist-card__link" href="https://github.com/noahsafar/aiden" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="finalist-card__media">
+            <img class="finalist-card__demo" src="assets/prize/aiden-demo.png" alt="Aiden email interface summarizing a message and proposing meeting times" width="1280" height="800">
+            <img class="finalist-card__portrait" src="assets/prize/noah-safar.png" alt="Noah Safar, creator of Aiden" width="481" height="496">
+          </div>
+        </article>
+
+        <article class="finalist-card">
+          <div class="finalist-card__person">Aya Kasim</div>
+          <h3 class="finalist-card__title">Frame</h3>
+          <p class="finalist-card__description">A system for generating personalized, time-bounded tours of the Yale University Art Gallery. Frame combines collection metadata with language models to help visitors navigate thousands of works while preserving the gallery’s curatorial voice.</p>
+          <a class="finalist-card__link" href="https://github.com/Ayak32/Frame" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="finalist-card">
+          <div class="finalist-card__person">Esha Garg</div>
+          <h3 class="finalist-card__title">CourseMap</h3>
+          <p class="finalist-card__description">An AI-powered academic planner that combines Yale’s course catalog, degree requirements, and student preferences to generate a personalized four-year plan using deterministic rules, retrieval, and generative planning.</p>
+          <a class="finalist-card__link" href="https://github.com/eshagxrg/cpsc_thesis" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
     </div>
-  </div>
+  </section>
 
   <footer class="footer">
     <div class="footer__row">

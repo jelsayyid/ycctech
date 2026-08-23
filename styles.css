@@ -375,6 +375,222 @@ button {
   margin-bottom: 1rem;
 }
 
+/* --- PRIZE RESULTS --- */
+.prize-winner {
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.prize-winner:first-of-type {
+  padding-top: 0;
+  border-top: none;
+}
+
+.prize-winner:last-child { padding-bottom: 0; }
+
+.prize-winner__header {
+  display: grid;
+  grid-template-columns: minmax(8.5rem, auto) 1fr auto;
+  gap: 1rem 2rem;
+  align-items: baseline;
+  margin-bottom: 1.25rem;
+}
+
+.prize-winner__rank,
+.prize-winner__creator,
+.finalist-card__person {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.prize-winner__rank { color: var(--accent); }
+.prize-winner__creator { color: var(--muted); }
+
+.prize-winner__name {
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.prize-winner__description {
+  max-width: 76ch;
+  color: var(--fg-dim);
+  font-size: 1.025rem;
+  line-height: 1.72;
+}
+
+.prize-winner__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.prize-winner__links a,
+.finalist-card__link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.01em;
+}
+
+.prize-winner__links a:hover,
+.finalist-card__link:hover { color: var(--accent-hover); }
+
+.prize-winner__note {
+  max-width: 72ch;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1rem;
+  border-left: 2px solid var(--border-bright);
+  background: var(--bg-elev);
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.prize-winner__note strong {
+  color: var(--fg-dim);
+  font-weight: 500;
+}
+
+.prize-winner__media {
+  display: grid;
+  grid-template-columns: minmax(0, 3.4fr) minmax(11rem, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.prize-winner__media--landscape {
+  grid-template-columns: minmax(0, 4.4fr) minmax(11rem, 1fr);
+}
+
+.prize-winner__demo,
+.prize-winner__portrait {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+}
+
+.prize-winner__demo img,
+.prize-winner__portrait img {
+  width: 100%;
+  height: auto;
+}
+
+.prize-winner__portrait img {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.prize-winner__portrait figcaption,
+.prize-winner__demo figcaption {
+  padding: 0.65rem 0.8rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.finalists-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.finalist-card {
+  min-width: 0;
+  padding: 2rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.finalist-card__person {
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+
+.finalist-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  margin-bottom: 1rem;
+}
+
+.finalist-card__description {
+  color: var(--fg-dim);
+  font-size: 0.94rem;
+  line-height: 1.68;
+  margin-bottom: 1.5rem;
+}
+
+.finalist-card__link { margin-top: auto; }
+
+.finalist-card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.85fr) minmax(0, 2fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.finalist-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.finalist-card__media {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(8rem, 1fr);
+  gap: 0.75rem;
+}
+
+.finalist-card__demo,
+.finalist-card__portrait {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+}
+
+.finalist-card__portrait {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+@media (max-width: 760px) {
+  .prize-winner__header { grid-template-columns: 1fr; gap: 0.5rem; }
+  .prize-winner__name { grid-row: 1; }
+  .prize-winner__rank { grid-row: 2; }
+  .prize-winner__creator { grid-row: 3; }
+
+  .prize-winner__media,
+  .prize-winner__media--landscape { grid-template-columns: 1fr; }
+
+  .prize-winner__portrait { max-width: 12rem; }
+
+  .finalists-grid { grid-template-columns: 1fr; }
+  .finalist-card--featured { grid-column: auto; grid-template-columns: 1fr; }
+  .finalist-card__media { grid-template-columns: 1fr; }
+  .finalist-card__portrait { max-width: 10rem; }
+}
+
+@media (max-width: 480px) {
+  .finalist-card { padding: 1.5rem; }
+}
+
 /* --- BUTTONS --- */
 .btn {
   display: inline-flex;
