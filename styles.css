@@ -853,7 +853,7 @@ button {
 .bounty-card__status--review { color: var(--warn); }
 .bounty-card__status--review::before { background: var(--warn); }
 
-.bounty-card__status--claimed { color: var(--muted); }
+.bounty-card__status--pending { color: var(--muted); }
 
 .btn--claim {
   font-family: var(--font-sans);
