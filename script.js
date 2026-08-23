@@ -457,8 +457,8 @@ function initKeyboardShortcuts() {
 // --- Command palette ---
 const CMDK_ITEMS = [
   { icon: '›', label: 'home',        desc: 'overview',             go: 'index.html' },
-  { icon: '›', label: 'bounties',    desc: '$200–$500 · ship it',  go: 'bounties.html' },
-  { icon: '›', label: 'prize',       desc: '$1,000 · May 1',       go: 'prize.html' },
+  { icon: '›', label: 'bounties',    desc: '$200–$500 ship it',  go: 'bounties.html' },
+  { icon: '›', label: 'prize',       desc: '$1,000 May 1',       go: 'prize.html' },
   { icon: '›', label: 'speakers',    desc: 'fireside chats',       go: 'speakers.html' },
   { icon: '›', label: 'dreamboard',  desc: 'hardware grants',      go: 'dreamboard.html' },
   { icon: '›', label: 'events',      desc: 'upcoming',             go: 'events.html' },
@@ -689,7 +689,7 @@ function activateHackerMode() {
   flash.innerHTML = `<pre>╔══════════════════════════════════╗
 ║        ACCESS  GRANTED           ║
 ║      hacker_mode: ENGAGED        ║
-║   ⌘K · [b] [p] [s] [d] [e] [h]   ║
+║   ⌘K [b] [p] [s] [d] [e] [h]   ║
 ╚══════════════════════════════════╝</pre>`;
   document.body.appendChild(flash);
   requestAnimationFrame(() => flash.classList.add('show'));
@@ -698,8 +698,8 @@ function activateHackerMode() {
 
   // Quiet console easter egg for devs peeking
   try {
-    console.log('%c> ycc/tech · hacker_mode engaged', 'color:#6b9fff; font-family: ui-monospace, monospace; font-weight: 500;');
-    console.log('%c  keys: h b p s d e · palette: ⌘K', 'color:#737373; font-family: ui-monospace, monospace;');
+    console.log('%c> ycc/tech hacker_mode engaged', 'color:#6b9fff; font-family: ui-monospace, monospace; font-weight: 500;');
+    console.log('%c  keys: h b p s d e palette: ⌘K', 'color:#737373; font-family: ui-monospace, monospace;');
   } catch (_) {}
 }
 
