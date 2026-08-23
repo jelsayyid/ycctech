@@ -296,6 +296,31 @@ button {
   font-style: normal;
 }
 
+.hero__event-figure {
+  margin-top: 3rem;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+}
+
+.hero__event-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.hero__event-figure figcaption {
+  padding: 0.65rem 0.8rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
 .hero__subtitle,
 .prize-hero__desc {
   color: var(--fg-dim);
