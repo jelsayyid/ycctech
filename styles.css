@@ -365,6 +365,30 @@ button {
   align-items: center;
 }
 
+.hero__text-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.15rem 0;
+  color: var(--fg);
+  border-bottom: 1px solid var(--accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  color: var(--accent);
+  border-color: var(--accent-hover);
+}
+
 .hero__stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -801,9 +825,7 @@ button {
 }
 
 .bounty-card__tags {
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
+  display: block;
   margin-bottom: 0.75rem;
 }
 
@@ -811,12 +833,13 @@ button {
   font-size: 0.72rem;
   font-weight: 400;
   color: var(--muted);
-  border: 1px solid var(--border-bright);
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
+  padding: 0;
   letter-spacing: 0.02em;
-  background: transparent;
   text-transform: none;
+}
+
+.bounty-card__tag:not(:last-child)::after {
+  content: ',';
 }
 
 .bounty-card__actions {
@@ -833,52 +856,14 @@ button {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 400;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.bounty-card__status::before {
-  content: '';
   display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--muted);
 }
 
 .bounty-card__status--open { color: var(--accent); }
-.bounty-card__status--open::before { background: var(--accent); }
 
 .bounty-card__status--review { color: var(--warn); }
-.bounty-card__status--review::before { background: var(--warn); }
 
 .bounty-card__status--pending { color: var(--muted); }
-
-.btn--claim {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 0.5rem 0.9rem;
-  border: 1px solid var(--border-bright);
-  background: transparent;
-  color: var(--fg);
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 120ms, color 120ms, border-color 120ms;
-}
-
-.btn--claim:hover {
-  background: var(--accent);
-  color: var(--bg);
-  border-color: var(--accent);
-}
-
-.btn--claim:disabled {
-  color: var(--muted);
-  cursor: not-allowed;
-  opacity: 0.5;
-}
 
 .bounty-card__detail {
   display: none;
@@ -923,24 +908,24 @@ button {
 .filter-btn {
   font-size: 0.75rem;
   font-weight: 400;
-  padding: 0.4rem 0.85rem;
-  border: 1px solid var(--border-bright);
+  padding: 0.4rem 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
   background: transparent;
   color: var(--muted);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  border-radius: 5px;
   cursor: pointer;
-  transition: border-color 120ms, color 120ms, background 120ms;
+  transition: border-color 120ms, color 120ms;
 }
 
-.filter-btn:hover { color: var(--fg); border-color: var(--fg); }
+.filter-btn:hover { color: var(--fg); border-color: var(--muted); }
 
 .active-filter,
 .filter-btn.active-filter {
-  color: var(--bg);
-  background: var(--fg);
-  border-color: var(--fg);
+  color: var(--accent);
+  background: transparent;
+  border-color: var(--accent);
 }
 
 /* --- CRITERIA / PRIZE LIST --- */
@@ -998,13 +983,11 @@ button {
 
 .timeline__dot {
   position: absolute;
-  left: -5px;
-  top: 0.35rem;
-  width: 9px;
-  height: 9px;
+  left: -6px;
+  top: 0.65rem;
+  width: 12px;
+  height: 1px;
   background: var(--border-bright);
-  border: 2px solid var(--bg);
-  border-radius: 50%;
 }
 
 .timeline__item.active .timeline__dot { background: var(--accent); }
@@ -1140,20 +1123,21 @@ button {
 .event-card__partners { margin: 1rem 0 1.25rem; }
 
 .event-card__partner-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  display: block;
 }
 
 .event-card__partner {
   font-size: 0.72rem;
   color: var(--muted);
-  border: 1px solid var(--border-bright);
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
+  padding: 0;
   letter-spacing: 0.02em;
-  background: transparent;
 }
+
+.event-card__partner:not(:last-child)::after {
+  content: ',';
+}
+
+.event-card__link { margin-top: 1.25rem; }
 
 .event-card__expect h3,
 .event-card__perks h3 {
