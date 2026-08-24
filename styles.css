@@ -272,43 +272,80 @@ button {
 }
 
 /* --- HERO --- */
-.hero,
 .prize-hero,
 .events-hero {
   padding: 5rem 0 3rem;
 }
 
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero .container { position: relative; }
+
 .hero__label { margin-bottom: 1.5rem; }
 
 .hero__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2.5rem;
-  align-items: center;
+  position: relative;
+  min-height: clamp(31rem, 61vw, 40rem);
+  display: flex;
+  align-items: flex-start;
+  padding: clamp(5rem, 9vw, 7.5rem) 0 4rem;
+}
+
+.hero__layout::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--bg) 0%, rgba(10, 10, 10, 0.92) 22%, rgba(10, 10, 10, 0.54) 50%, transparent 76%);
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 2;
+  max-width: 45rem;
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.9);
 }
 
 .hero__visual {
-  width: 100%;
-  max-width: 320px;
-  justify-self: center;
-  border: 1px solid var(--border);
-  background: var(--bg-elev);
+  position: absolute;
+  z-index: 0;
+  top: -4rem;
+  right: -4rem;
+  width: min(67vw, 47rem);
+  opacity: 0.62;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 82% 78% at 62% 34%, #000 30%, rgba(0, 0, 0, 0.9) 56%, transparent 100%);
+  mask-image: radial-gradient(ellipse 82% 78% at 62% 34%, #000 30%, rgba(0, 0, 0, 0.9) 56%, transparent 100%);
 }
 
 .hero__visual img {
   width: 100%;
   height: auto;
+  filter: saturate(0.9) contrast(1.04);
 }
 
-@media (min-width: 800px) {
+@media (max-width: 799px) {
   .hero__layout {
-    grid-template-columns: minmax(0, 1fr) minmax(230px, 280px);
-    gap: clamp(3rem, 8vw, 7rem);
+    min-height: 34rem;
+    padding: 4.5rem 0 3rem;
   }
 
   .hero__visual {
-    max-width: none;
-    justify-self: end;
+    top: 4.5rem;
+    right: -13rem;
+    width: 36rem;
+    opacity: 0.5;
+    -webkit-mask-image: radial-gradient(ellipse 78% 76% at 52% 34%, #000 25%, rgba(0, 0, 0, 0.86) 54%, transparent 100%);
+    mask-image: radial-gradient(ellipse 78% 76% at 52% 34%, #000 25%, rgba(0, 0, 0, 0.86) 54%, transparent 100%);
+  }
+
+  .hero__layout::after {
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.34) 0%, rgba(10, 10, 10, 0.08) 42%, var(--bg) 100%);
   }
 }
 
