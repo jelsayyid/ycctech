@@ -1755,7 +1755,7 @@ button {
 
 .team__row {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 220px 1fr;
   gap: 1.5rem;
   padding: 0.9rem 0;
   border-bottom: 1px solid var(--border);
