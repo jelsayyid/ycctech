@@ -1345,7 +1345,7 @@ button {
   }
 
   .home-recent-grid .events-preview {
-    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
   }
 
   .home-event-figure {
